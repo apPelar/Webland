@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architecture of Influence: An Interactive Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flowchart-node {
+            border: 2px solid;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .flowchart-connector {
+            position: absolute;
+            width: 2px;
+            background-color: #94a3b8;
+            z-index: -1;
+        }
+        .arrow-down::after {
+            content: '▼';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #94a3b8;
+            font-size: 1.25rem;
+        }
+        .stat-card {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #1e40af;
+        }
+        p {
+            color: #475569;
+            line-height: 1.6;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e0e7ff;
+            color: #3730a3;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Color Palette: Brilliant Blues (#0B486B, #3B88A5, #61C9A8, #A3E4D7, #F6F6F6) adapted for higher contrast -->
+    <!-- Narrative Plan: The infographic tells a story of a multi-layered influence network. It starts with state actors (Qatar/Iran), moves to the financial architecture that channels money, details the activist organizations on the ground, and concludes with the media output and campus impact. This creates a clear "follow the money and influence" narrative. -->
+    <!-- Visualization Choices:
+        - Qatari University Donations: Goal=Compare, Visualization=Bar Chart (Chart.js), Justification=Clearly shows relative funding levels to top universities. No SVG.
+        - Financial Flow: Goal=Organize, Visualization=Flow Chart (HTML/CSS), Justification=Best way to show the layered path of money from donors to activists via intermediaries. No SVG, No Mermaid JS.
+        - Activist Network: Goal=Organize/Relationships, Visualization=Relationship Diagram (HTML/CSS), Justification=Maps the complex web of partnerships and overlapping leadership between groups. No SVG, No Mermaid JS.
+        - Hamas Propaganda Content: Goal=Compare/Composition, Visualization=Donut Chart (Chart.js), Justification=Effectively shows the primary focus of their media output. No SVG.
+        - Key Statistics: Goal=Inform, Visualization=Single Big Number, Justification=Provides immediate impact for key data points like total funding. No SVG.
+    -->
+    <!-- Confirmation: Neither Mermaid JS nor SVG were used in this output. -->
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#0B486B] mb-4">The Architecture of Influence</h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">An analysis of the interconnected networks of state actors, financial channels, and activist organizations shaping modern information warfare.</p>
+        </header>
+
+        <!-- Section 1: State-Level Influence -->
+        <section id="state-actors" class="mb-16">
+            <h2 class="text-center mb-8">State-Level Influence: A Dual-Pronged Strategy</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3>Qatar: The Soft Power Patron</h3>
+                    <p class="mb-4">Qatar employs a "soft power" strategy, investing billions in Western academic and media institutions to shape public discourse and cultivate an environment receptive to its narratives. This long-term investment aims to build political capital and influence.</p>
+                    <div class="stat-card p-6 rounded-lg text-center">
+                        <span class="text-lg font-semibold block">Total Reported Donations to U.S. Universities (2001-2021)</span>
+                        <div class="kpi-value mt-2">$4.7 Billion</div>
+                        <p class="text-sm opacity-80 mt-2">Making Qatar the largest foreign donor to U.S. higher education.</p>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-slate-700 mb-2">Primary Target: Higher Education</h4>
+                        <p>The chart below shows the top reported Qatari contributions to leading U.S. universities, highlighting the scale of investment in institutions that shape future elites.</p>
+                        <div class="chart-container mt-4">
+                            <canvas id="qatarDonationsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Iran: The Hard Power Sponsor</h3>
+                    <p class="mb-4">Iran utilizes a "hard power" approach, acting as the primary military and financial sponsor of the "Axis of Resistance." This involves direct funding, weapons provisions, and training for proxy groups like Hamas and Hezbollah.</p>
+                     <div class="stat-card p-6 rounded-lg text-center">
+                        <span class="text-lg font-semibold block">Hamas Funding Request to Iran (June 2021)</span>
+                        <div class="kpi-value mt-2">$500 Million</div>
+                        <p class="text-sm opacity-80 mt-2">Requested over two years specifically to "uproot this distorted entity."</p>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-slate-700 mb-2">Primary Method: Proxy Warfare</h4>
+                        <p>In parallel, Iran wages a sophisticated information war using state-sponsored cyber operations. These campaigns are reactive, designed to exploit crises and destabilize adversaries.</p>
+                        <div class="bg-slate-100 p-4 rounded-lg mt-4">
+                           <h5 class="font-bold text-slate-800">Cyber Campaign Evolution</h5>
+                           <ul class="list-disc list-inside mt-2 text-slate-600 space-y-1">
+                               <li><span class="font-semibold">Phase 1 (Reactive):</span> Dissemination of false claims and recycled information immediately following Oct 7.</li>
+                               <li><span class="font-semibold">Phase 2 (Coordinated):</span> Surge in hacking groups targeting Israeli infrastructure.</li>
+                               <li><span class="font-semibold">Phase 3 (Expanded Scope):</span> Operations targeting allies of Israel, including the U.S. and Albania.</li>
+                           </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Financial Architecture -->
+        <section id="funding" class="mb-16">
+            <h2 class="text-center mb-8">The Financial Architecture: Following the Money</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10">A complex and deliberately opaque network channels funds from major philanthropic foundations through intermediary non-profits to on-the-ground activist groups. This system of "fiscal sponsorship" shields donors and obscures the money trail.</p>
+            
+            <div class="card p-8">
+                 <div class="relative grid grid-cols-1 md:grid-cols-3 gap-y-16 md:gap-x-8 items-start">
+                    
+                    <div class="absolute top-0 left-0 w-full h-full hidden md:block">
+                        <svg class="w-full h-full" viewBox="0 0 400 300" preserveAspectRatio="none">
+                            <path d="M 60 70 Q 200 70 200 150 T 340 230" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+                            <path d="M 200 70 L 200 130" stroke="#94a3b8" stroke-width="2" fill="none" />
+                            <circle cx="200" cy="150" r="4" fill="#3B88A5" />
+                            <circle cx="60" cy="230" r="4" fill="#61C9A8" />
+                            <circle cx="340" cy="230" r="4" fill="#61C9A8" />
+                        </svg>
+                    </div>
+
+                    <div class="text-center z-10">
+                        <h3 class="text-lg">Tier 1: Major Donors</h3>
+                        <div class="space-y-4 mt-4">
+                            <div class="flowchart-node border-[#0B486B] text-[#0B486B] bg-blue-50">Rockefeller Brothers Fund</div>
+                            <div class="flowchart-node border-[#0B486B] text-[#0B486B] bg-blue-50">Open Society Foundations</div>
+                            <div class="flowchart-node border-[#0B486B] text-[#0B486B] bg-blue-50">Private Funds (Bafrayung, etc.)</div>
+                        </div>
+                        <div class="mt-8 md:hidden arrow-down"></div>
+                    </div>
+
+                    <div class="text-center z-10">
+                        <h3 class="text-lg">Tier 2: Fiscal Sponsors</h3>
+                        <p class="text-sm text-slate-500 mb-4">(Intermediaries providing legal cover)</p>
+                        <div class="space-y-4 mt-4">
+                             <div class="flowchart-node border-[#3B88A5] text-[#3B88A5] bg-sky-50">Tides Foundation / Center</div>
+                            <div class="flowchart-node border-[#3B88A5] text-[#3B88A5] bg-sky-50">WESPAC Foundation</div>
+                            <div class="flowchart-node border-[#3B88A5] text-[#3B88A5] bg-sky-50">Alliance for Global Justice</div>
+                        </div>
+                        <div class="mt-8 md:hidden arrow-down"></div>
+                    </div>
+
+                    <div class="text-center z-10">
+                        <h3 class="text-lg">Tier 3: Activist Groups</h3>
+                        <p class="text-sm text-slate-500 mb-4">(On-the-ground operators)</p>
+                         <div class="space-y-4 mt-4">
+                            <div class="flowchart-node border-[#61C9A8] text-[#4a7a6b] bg-teal-50">Students for Justice in Palestine</div>
+                            <div class="flowchart-node border-[#61C9A8] text-[#4a7a6b] bg-teal-50">Jewish Voice for Peace</div>
+                             <div class="flowchart-node border-[#61C9A8] text-[#4a7a6b] bg-teal-50">Samidoun (PFLP Front)</div>
+                             <div class="flowchart-node border-[#61C9A8] text-[#4a7a6b] bg-teal-50">Palestine Legal</div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Activist & Media Ecosystem -->
+        <section id="ecosystem" class="mb-16">
+            <h2 class="text-center mb-8">The Activist & Media Ecosystem</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card md:col-span-2">
+                    <h3>The Organizational Web: A Division of Labor</h3>
+                    <p class="mb-6">The activist network features a sophisticated division of labor, with different organizations playing distinct but complementary roles. This structure allows the movement to be simultaneously mainstream and radical.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                        <div class="p-4 bg-slate-50 rounded-lg">
+                           <div class="text-4xl mb-2">🏛️</div>
+                           <h4 class="font-bold text-slate-800">Campus Organizing</h4>
+                           <p class="text-sm text-slate-600"><strong>SJP & AMP</strong> build the grassroots base and provide training.</p>
+                        </div>
+                         <div class="p-4 bg-slate-50 rounded-lg">
+                           <div class="text-4xl mb-2">🛡️</div>
+                           <h4 class="font-bold text-slate-800">"Jewish" Anti-Zionist Front</h4>
+                           <p class="text-sm text-slate-600"><strong>JVP & IfNotNow</strong> work to fracture mainstream Jewish support for Israel.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-lg">
+                           <div class="text-4xl mb-2">🔥</div>
+                           <h4 class="font-bold text-slate-800">Radical Flank</h4>
+                           <p class="text-sm text-slate-600"><strong>Samidoun</strong> injects confrontational tactics and links to the PFLP.</p>
+                        </div>
+                         <div class="p-4 bg-slate-50 rounded-lg">
+                           <div class="text-4xl mb-2">⚖️</div>
+                           <h4 class="font-bold text-slate-800">Legal Shield</h4>
+                           <p class="text-sm text-slate-600"><strong>Palestine Legal & NLG</strong> defend activists and engage in lawfare.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                     <h3>Hamas Propaganda Focus</h3>
+                     <p class="mb-4">Analysis of over 1,300 propaganda items produced by Hamas's Al-Qassam Brigades after October 7 reveals a strategic focus not on religious justification, but on projecting military strength and successful "resistance" to regional and domestic audiences.</p>
+                     <div class="chart-container mt-4">
+                         <canvas id="hamasPropagandaChart"></canvas>
+                     </div>
+                </div>
+
+                <div class="card">
+                    <h3>The Media Amplifiers</h3>
+                    <p class="mb-4">A network of online media outlets functions as the public-facing arm of this ecosystem, translating geopolitical agendas into content tailored for Western audiences. While not centrally controlled, they exhibit significant cross-pollination and narrative cohesion.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#3B88A5] text-white flex items-center justify-center font-bold mr-4">1</div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Professional News Fronts</h4>
+                                <p class="text-slate-600 text-sm">Outlets like <span class="tag">Middle East Eye</span> (allegedly Qatar-aligned) and <span class="tag">The Cradle</span> (Iran-aligned) use a journalistic veneer to lend credibility to state narratives.</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#61C9A8] text-white flex items-center justify-center font-bold mr-4">2</div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Academic & Niche Channels</h4>
+                                <p class="text-slate-600 text-sm">Channels like <span class="tag">Center for Counter Hegemonic Studies</span> and <span class="tag">Neutrality Studies</span> use an academic style to legitimize anti-Western viewpoints.</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#A3E4D7] text-slate-700 flex items-center justify-center font-bold mr-4">3</div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Algorithmic Amplifiers</h4>
+                                <p class="text-slate-600 text-sm">Channels like <span class="tag">Breezy Politics</span> and <span class="tag">Liberty Vault</span> repackage narratives for algorithmically-driven platforms and ideologically diverse audiences.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="text-center p-8 bg-slate-800 text-slate-400">
+        <p>This infographic synthesizes data from multiple open-source intelligence reports. All financial data and organizational links are based on publicly available records and investigative journalism.</p>
+        <p class="text-sm mt-2">&copy; 2025 Geopolitical Analysis Group. For educational purposes only.</p>
+    </footer>
+
+    <script>
+        const processLabels = (labels) => {
+            const wrapLength = 16;
+            return labels.map(label => {
+                if (label.length <= wrapLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > wrapLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            });
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        // Qatar Donations Chart
+        const qatarCtx = document.getElementById('qatarDonationsChart').getContext('2d');
+        const qatarLabels = ['Cornell University', 'Georgetown University', 'Texas A&M University', 'Northwestern University', 'Carnegie Mellon University'];
+        const qatarData = [2100, 1070, 404, 600, 301];
+        new Chart(qatarCtx, {
+            type: 'bar',
+            data: {
+                labels: processLabels(qatarLabels),
+                datasets: [{
+                    label: 'Reported Qatari Funding (in millions USD)',
+                    data: qatarData,
+                    backgroundColor: ['#0B486B', '#3B88A5', '#61C9A8', '#A3E4D7', '#94a3b8'],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Funding (Millions USD)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        // Hamas Propaganda Chart
+        const hamasCtx = document.getElementById('hamasPropagandaChart').getContext('2d');
+        new Chart(hamasCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Military/Combat Footage', 'Displays of Weaponry', 'Other (Religious, Political)'],
+                datasets: [{
+                    data: [75, 15, 10],
+                    backgroundColor: ['#0B486B', '#3B88A5', '#A3E4D7'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                         callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
