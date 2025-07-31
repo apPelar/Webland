@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המחנך כיזם חברתי: מדריך לתכנון וניהול פרויקטים</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Heebo', sans-serif;
+        }
+        .editable-field {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .editable-field.is-empty:before {
+            content: attr(data-placeholder);
+            color: #9ca3af; /* gray-400 */
+            font-style: italic;
+            cursor: text;
+        }
+        .nav-link {
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-link.active {
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+            font-weight: 700;
+        }
+        .nav-link:not(.active):hover {
+            background-color: #f3f4f6; /* gray-100 */
+        }
+        /* Scrollable sidebar navigation */
+        #main-nav {
+            max-height: calc(100vh - 120px); /* Adjust based on header height */
+            overflow-y: auto;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .ref-link {
+            color: #3b82f6; /* blue-500 */
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .ref-link:hover {
+            color: #1d4ed8; /* blue-700 */
+        }
+        .prose ul {
+            list-style-position: inside;
+            list-style-type: disc;
+        }
+        .prose ol {
+            list-style-position: inside;
+            list-style-type: decimal;
+        }
+        .external-ref-link {
+            color: #1e40af; /* blue-800 */
+            text-decoration: none;
+        }
+        .external-ref-link:hover {
+            text-decoration: underline;
+        }
+        .fixed-layout-table {
+            table-layout: fixed;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-full md:w-64 bg-white border-l border-gray-200 shadow-md md:h-screen md:sticky md:top-0 flex flex-col">
+            <div class="p-6">
+                <h1 class="text-xl font-bold text-blue-700">המחנך כיזם חברתי</h1>
+                <p class="text-sm text-gray-600 mt-1">מדריך לתכנון וניהול פרויקטים</p>
+            </div>
+            <nav id="main-nav" class="flex-grow p-4 space-y-2">
+                <a href="#page-0" class="nav-link block p-3 rounded-lg active">מבוא</a>
+                <a href="#page-1" class="nav-link block p-3 rounded-lg">חלק 1: יסודות</a>
+                <a href="#page-2" class="nav-link block p-3 rounded-lg">חלק 2: הגדרת השינוי</a>
+                <a href="#page-3" class="nav-link block p-3 rounded-lg">חלק 3: תכנון-על</a>
+                <a href="#page-4" class="nav-link block p-3 rounded-lg">חלק 4: תכנון מעשי</a>
+                <a href="#page-5" class="nav-link block p-3 rounded-lg">חלק 5: המסגרת החינוכית</a>
+                <a href="#page-6" class="nav-link block p-3 rounded-lg">חלק 6: מדידת הצלחה</a>
+                <a href="#page-7" class="nav-link block p-3 rounded-lg">חלק 7: כתיבת ההצעה</a>
+                <a href="#page-8" class="nav-link block p-3 rounded-lg">סיכום ומקורות</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content-area" class="flex-1 p-6 md:p-10 overflow-y-auto">
+            <div id="content-container" class="space-y-12 prose max-w-none">
+                
+                <!-- Page 0: Introduction -->
+                <div id="page-0" class="page-content">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">מבוא: המחנך כיזם חברתי</h2>
+                    <p class="text-lg leading-relaxed">
+                        מדריך זה נועד להכשיר את דור המחנכים הבא, לא רק כמורי מקצוע אלא כיזמים חברתיים, מעצבי פרויקטים ומנהלים המסוגלים להוביל שינוי משמעותי. בעולם המשתנה במהירות, תפקיד המחנך מתרחב מעבר לכותלי הכיתה. הוא הופך לסוכן שינוי, המזהה צרכים בקהילה, מגייס משאבים ומוביל תהליכים חינוכיים בעלי השפעה חברתית מדידה. המדריך יצייד אתכם בתפיסת עולם, בכלים ובמתודולוגיות הנדרשים לתכנון, ניהול והערכה של פרויקטים – החל ממיזמים אישיים לפיתוח מיומנויות, דרך פרויקטים קהילתיים וכלה בבניית תוצרים בעלי ערך ממשי. המטרה היא להקנות לכם את היכולת ליצור הצעות פרויקט מקצועיות ולהוציאן לפועל בהצלחה, תוך שימת דגש כפול: יצירת תועלת חברתית מוחשית והגדרה ברורה של ההיבטים החינוכיים והלימודיים בכל שלבי הפרויקט.
+                    </p>
+                </div>
+                
+                <!-- Page 1: Foundations -->
+                <div id="page-1" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">חלק 1: יסודות – תפיסת העולם של המחנך-היזם</h2>
+                    <section class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">1.1. מעבר להוראה: המחנך כסוכן שינוי חברתי</h3>
+                        <p>התפיסה המסורתית של הוראה מפנה את מקומה למודל חדש: המחנך כיזם חברתי. יזמות חברתית, בהגדרתה הרחבה, היא יישום עקרונות יזמיים במטרה ליצור ערך חברתי, תוך התמקדות בחדשנות, תושייה והתכווננות לתוצאות (<span class="ref-link" data-ref="1">1</span>). בהקשר החינוכי, משמעות הדבר היא פיתוח ויישום של פתרונות חדשניים לשיפור תוצאות למידה, הגברת הגישה לחינוך איכותי והתמודדות עם סוגיות מערכתיות כגון אי-שוויון חינוכי (<span class="ref-link" data-ref="1">1</span>, <span class="ref-link" data-ref="2">2</span>).</p>
+                        <div class="bg-blue-50 border-r-4 border-blue-500 p-4 rounded-lg my-4">
+                            <h4 class="font-bold">תפקיד מפתח: מגשר הלוגיקות (Logic-Bridger)</h4>
+                            <p>הצלחת פרויקט חברתי-חינוכי תלויה ביכולת לגייס משאבים ותמיכה משלושה תחומים מוסדיים שונים, שלכל אחד מהם "לוגיקה" משלו: הלוגיקה של הרווחה החברתית, הלוגיקה המסחרית והלוגיקה של המגזר הציבורי (<span class="ref-link" data-ref="3">3</span>). המחנך-היזם חייב להבין את התרבות, האינטרסים והנורמות של כל אחד מהתחומים הללו ולדעת "לדבר בשפתם".</p>
+                        </div>
+                         <p>בבסיס תפיסת עולם זו עומד הצורך לטפח חשיבה ביקורתית ותרבות של אחריות חברתית (<span class="ref-link" data-ref="4">4</span>). אמפתיה, שהיא תכונה מרכזית המבדילה בין יזמים חברתיים ליזמים מסחריים, הופכת למנוע המרכזי בזיהוי צרכים ובהנעה לפעולה (<span class="ref-link" data-ref="5">5</span>).</p>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">1.2. למידה מבוססת פרויקטים (PBL) ככלי ליזמות חברתית</h3>
+                        <p>למידה מבוססת פרויקטים (Project-Based Learning או PBL) אינה רק מתודולוגיה פדגוגית, אלא היא המסגרת המעשית והרעיונית המאפשרת למחנך-היזם להוציא את חזונו לפועל. PBL היא גישה ממוקדת-תלמיד המארגנת את הלמידה סביב חקירה מתמשכת של בעיות או שאלות מורכבות ואותנטיות מהעולם האמיתי (<span class="ref-link" data-ref="6">6</span>, <span class="ref-link" data-ref="7">7</span>). הקשר בין PBL ליזמות חברתית הוא סימביוטי. PBL מטפח באופן טבעי את מיומנויות המאה ה-21, שהן אבני היסוד של היזם החברתי: חשיבה ביקורתית, פתרון בעיות, שיתוף פעולה, תקשורת, יצירתיות וניהול פרויקטים (<span class="ref-link" data-ref="7">7</span>, <span class="ref-link" data-ref="9">9</span>).</p>
+                        <p>יתרה מכך, למידה מבוססת פרויקטים בעלי אופי של חדשנות חברתית תורמת באופן משמעותי לטיפוח תחושת שייכות (Sense of Belonging) בקרב המשתתפים (<span class="ref-link" data-ref="12">12</span>, <span class="ref-link" data-ref="13">13</span>). תחושת שייכות זו אינה רק תוצר לוואי חיובי, אלא היא תנאי הכרחי ללמידה עמוקה ולמעורבות מתמשכת.</p>
+                    </section>
+                </div>
+
+                <!-- Page 2: Defining Change -->
+                <div id="page-2" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">חלק 2: הגדרת השינוי – משלב הרעיון להגדרת המטרה</h2>
+                    <section class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">2.1. איתור צרכים והזדמנויות בקהילה</h3>
+                        <p>הבסיס לכל פרויקט חברתי משמעותי הוא הבנה עמוקה של הצרכים וההזדמנויות הקיימים בקהילה. במקום להניח הנחות, יש לצאת לשטח ולבצע הערכת צרכים קהילתית (Community Needs Assessment) מובנית. גישה מומלצת היא פיתוח קהילתי מבוסס נכסים (Asset-Based Community Development), שמתחילה בזיהוי ומיפוי של הנכסים והמשאבים הקיימים בקהילה (<span class="ref-link" data-ref="14">14</span>, <span class="ref-link" data-ref="15">15</span>).</p>
+                        <div class="bg-gray-100 p-4 rounded-lg my-4 space-y-2">
+                            <h4 class="font-bold">תהליך הערכת צרכים קהילתית:</h4>
+                            <ol>
+                                <li><b>הגדרת הקהילה:</b> הגדירו את גבולות הקהילה (גיאוגרפיים, דמוגרפיים, זיקה משותפת).</li>
+                                <li><b>זיהוי נכסים קהילתיים:</b> מפו את הנכסים הקיימים (אנשים, ארגונים, מקומות, ציוד) לפני שאתם מתמקדים בחסמים.</li>
+                                <li><b>איסוף נתונים:</b> השתמשו במגוון שיטות כמו סקרים, מפגשי הקשבה, תצפיות ושימוש בנתונים קיימים.</li>
+                                <li><b>ניתוח ותכנון:</b> ארגנו את הממצאים בארבע קטגוריות: חוזקות, אתגרים, צרכים והזדמנויות.</li>
+                            </ol>
+                        </div>
+                        <div class="bg-yellow-50 border-r-4 border-yellow-500 p-4 rounded-lg">
+                            <h4 class="font-bold">תרגיל: מיפוי צרכים ונכסים (SWOT)</h4>
+                            <p>השתמשו בטבלה הבאה כדי למפות את החוזקות, האתגרים, הצרכים וההזדמנויות בקהילה שלכם.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-sm">
+                                <div class="bg-white p-3 rounded-lg shadow">
+                                    <h5 class="font-bold mb-2">חוזקות (Strengths - פנימי)</h5>
+                                    <div contenteditable="true" data-placeholder="מהם הנכסים והיתרונות הקיימים בקהילה?" class="editable-field p-2 border rounded min-h-[100px] bg-gray-50"></div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow">
+                                    <h5 class="font-bold mb-2">חולשות/אתגרים (Weaknesses - פנימי)</h5>
+                                    <div contenteditable="true" data-placeholder="מהם החסמים או הקשיים הפנימיים?" class="editable-field p-2 border rounded min-h-[100px] bg-gray-50"></div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow">
+                                    <h5 class="font-bold mb-2">הזדמנויות (Opportunities - חיצוני)</h5>
+                                    <div contenteditable="true" data-placeholder="אילו גורמים חיצוניים יכולים לסייע?" class="editable-field p-2 border rounded min-h-[100px] bg-gray-50"></div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow">
+                                    <h5 class="font-bold mb-2">איומים/צרכים (Threats - חיצוני)</h5>
+                                    <div contenteditable="true" data-placeholder="מה חסר בקהילה? מהם הצרכים שלא מקבלים מענה?" class="editable-field p-2 border rounded min-h-[100px] bg-gray-50"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">2.2. סיעור מוחות וגיבוש רעיונות</h3>
+                        <p>לאחר שהוגדרו הצרכים, השלב הבא הוא יצירת מאגר רחב של פתרונות אפשריים באמצעות סיעור מוחות (Brainstorming). כדי שהתהליך יהיה אפקטיבי, חשוב להקפיד על מספר כללי יסוד: דחיית שיפוט, עידוד רעיונות "פרועים", כמות על פני איכות, ובנייה על רעיונות של אחרים (<span class="ref-link" data-ref="19">19</span>, <span class="ref-link" data-ref="20">20</span>).</p>
+                        <div class="bg-gray-100 p-4 rounded-lg my-4">
+                            <h4 class="font-semibold">טכניקות מומלצות לסיעור מוחות:</h4>
+                            <ul class="mt-2 space-y-1">
+                                <li><b>כתיבת מוח (Brainwriting) / 6-3-5:</b> שיטות שקטות וכתובות המבטיחות שגם קולות שקטים יותר יישמעו (<span class="ref-link" data-ref="21">21</span>, <span class="ref-link" data-ref="22">22</span>).</li>
+                                <li><b>שמונה המשוגעים (Crazy 8s):</b> כל משתתף מקפל דף לשמונה חלקים ומצייר או רושם שמונה רעיונות בשמונה דקות (<span class="ref-link" data-ref="19">19</span>, <span class="ref-link" data-ref="22">22</span>).</li>
+                                <li><b>סיעור מוחות בדמות (Figure Storming):</b> הקבוצה שואלת: "כיצד דמות מוכרת (למשל, מנהיג היסטורי) הייתה ניגשת לבעיה?" (<span class="ref-link" data-ref="21">21</span>).</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">2.3. גיבוש חזון ומשימה לפרויקט</h3>
+                         <p>לאחר סינון וגיבוש הרעיון המרכזי, יש לתרגם אותו לחזון (Vision) ומשימה (Mission) ברורים. שני המושגים הללו, אף שהם קשורים, שונים במהותם ומשמשים כמצפן של הפרויקט (<span class="ref-link" data-ref="24">24</span>).</p>
+                         <div class="bg-green-50 border-r-4 border-green-500 p-4 rounded-lg">
+                            <h4 class="font-bold">תרגיל: ניסוח חזון ומשימה</h4>
+                            <div class="space-y-4 mt-2">
+                                <div>
+                                    <label class="font-semibold">הצהרת חזון (Vision):</label>
+                                    <p class="text-sm text-gray-600">מתארת את העולם האידיאלי, את העתיד הרצוי שהפרויקט שואף ליצור. היא שאיפתית וקצרה. לדוגמה: "עולם שבו לכל ילד יש גישה שווה להזדמנויות חינוכיות."</p>
+                                    <div id="vision-field" contenteditable="true" data-placeholder="כתבו כאן את הצהרת החזון שלכם..." class="editable-field p-2 border rounded mt-1 bg-white"></div>
+                                </div>
+                                <div>
+                                    <label class="font-semibold">הצהרת משימה (Mission):</label>
+                                    <p class="text-sm text-gray-600">מצהירה מה הפרויקט עושה ומדוע הוא קיים. היא מתארת את הפעולה המרכזית ואת מטרת העל. לדוגמה: "להעצים נוער בפריפריה באמצעות תוכניות חונכות טכנולוגיות."</p>
+                                    <div id="mission-field" contenteditable="true" data-placeholder="כתבו כאן את הצהרת המשימה שלכם..." class="editable-field p-2 border rounded mt-1 bg-white"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Page 3: Strategic Planning -->
+                <div id="page-3" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">חלק 3: תכנון-על – בניית התוכנית האסטרטגית</h2>
+                    <section class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">3.1. תיאוריית השינוי (Theory of Change – ToC)</h3>
+                        <p>תיאוריית השינוי (ToC) היא מתודולוגיה מקיפה המסבירה *כיצד* ו*מדוע* שינוי רצוי צפוי להתרחש. היא מהווה את "השרטוט הסיבתי" של הפרויקט. התהליך הטוב ביותר ליצירת ToC הוא "תכנון לאחור" (backward mapping), שבו מתחילים מההשפעה ארוכת הטווח הרצויה ופועלים לאחור כדי לזהות את כל התנאים המקדימים (התוצאות) שחייבים להתקיים (<span class="ref-link" data-ref="25">25</span>, <span class="ref-link" data-ref="26">26</span>, <span class="ref-link" data-ref="28">28</span>).</p>
+                        <div class="bg-gray-100 p-4 rounded-lg my-4 space-y-2">
+                            <h4 class="font-bold">מדריך ליצירת תיאוריית שינוי בעשרה שלבים (מבוסס על מודל NPC):</h4>
+                             <ol>
+                                <li><b>ניתוח מצב:</b> הגדירו את הבעיה, גורמיה וההקשר המערכתי.</li>
+                                <li><b>קבוצות יעד:</b> זהו את האנשים או המוסדות שהפרויקט יפעל איתם ישירות.</li>
+                                <li><b>השפעה (Impact):</b> הגדירו את השינוי המשמעותי וארוך הטווח שאתם שואפים להשיג.</li>
+                                <li><b>תוצאות (Outcomes):</b> זהו את השינויים קצרי הטווח הנדרשים (בידע, מיומנויות, עמדות).</li>
+                                <li><b>פעילויות (Activities):</b> פרטו את הפעולות המרכזיות שהפרויקט יבצע.</li>
+                                <li><b>מנגנוני שינוי:</b> הסבירו *כיצד* הפעילויות יובילו לתוצאות.</li>
+                                <li><b>יצירת רצף:</b> סדרו את התוצאות ברצף הגיוני (מה קורה לפני מה).</li>
+                                <li><b>תרשים ToC:</b> צרו תרשים ויזואלי המסכם את הקשרים הסיבתיים.</li>
+                                <li><b>בעלי עניין וגורמים מאפשרים:</b> זהו גורמים חיצוניים הנדרשים להצלחה.</li>
+                                <li><b>הנחות יסוד (Assumptions):</b> חשפו את "קפיצות האמונה" בתיאוריה שלכם.</li>
+                            </ol>
+                        </div>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">3.2. המודל הלוגי (Logframe)</h3>
+                        <p>לאחר שתיאוריית השינוי סיפקה את ההיגיון האסטרטגי הרחב, המודל הלוגי (Logical Framework או Logframe) נכנס לפעולה כדי לתרגם אסטרטגיה זו לתוכנית עבודה מובנית, ליניארית ומדידה (<span class="ref-link" data-ref="31">31</span>, <span class="ref-link" data-ref="32">32</span>). העוצמה של ה-Logframe טמונה בהיגיון האנכי ("אם-אז") והאופקי (מדידה ואימות) שלו.</p>
+                        <div class="bg-indigo-50 border-r-4 border-indigo-500 p-4 rounded-lg">
+                            <h4 class="font-bold">כלי אינטראקטיבי: בניית מודל לוגי (Logframe)</h4>
+                            <p class="mb-4">מלאו את הטבלה כדי לבנות את המודל הלוגי של הפרויקט שלכם. לחצו על התאים כדי לערוך.</p>
+                            <div class="overflow-x-auto">
+                                <table id="logframe-table" class="w-full border-collapse border border-gray-300 text-sm fixed-layout-table">
+                                    <thead class="bg-gray-200 font-semibold">
+                                        <tr>
+                                            <th class="border border-gray-300 p-2">סיכום נרטיבי</th>
+                                            <th class="border border-gray-300 p-2">מדדים ברי אימות (OVI)</th>
+                                            <th class="border border-gray-300 p-2">אמצעי אימות (MoV)</th>
+                                            <th class="border border-gray-300 p-2">הנחות וסיכונים</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-gray-300 p-2 font-semibold bg-gray-100">מטרת-על (Impact)</td>
+                                            <td contenteditable="true" data-placeholder="כיצד נדע שהשגנו את מטרת העל?" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="מקורות מידע (למשל, נתונים רשמיים)" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="גורמים חיצוניים נדרשים" class="editable-field border border-gray-300 p-2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-300 p-2 font-semibold bg-gray-100">מטרה (Outcome)</td>
+                                            <td contenteditable="true" data-placeholder="כיצד נדע שהשגנו את מטרת הפרויקט?" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="מקורות מידע (למשל, סקרים, ראיונות)" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="גורמים חיצוניים נדרשים" class="editable-field border border-gray-300 p-2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-300 p-2 font-semibold bg-gray-100">תפוקות (Outputs)</td>
+                                            <td contenteditable="true" data-placeholder="כיצד נמדוד את התפוקות? (למשל, מס' סדנאות)" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="מקורות מידע (למשל, רשימות נוכחות)" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="גורמים חיצוניים נדרשים" class="editable-field border border-gray-300 p-2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-300 p-2 font-semibold bg-gray-100">פעילויות (Activities)</td>
+                                            <td contenteditable="true" data-placeholder="משאבים/תשומות נדרשים (Inputs)" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="כיצד נעקוב אחר המשאבים?" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="תנאים מוקדמים להתחלה" class="editable-field border border-gray-300 p-2"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="clear-table-btn mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" data-table="logframe-table">נקה טבלה</button>
+                        </div>
+                    </section>
+                     <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">3.3. הגדרת יעדים חכמים (SMART Objectives)</h3>
+                        <p>כדי שהמדדים בעמודת ה-OVI ב-Logframe יהיו אפקטיביים, עליהם להיות מנוסחים כיעדים "חכמים" – SMART (<span class="ref-link" data-ref="34">34</span>, <span class="ref-link" data-ref="35">35</span>, <span class="ref-link" data-ref="36">36</span>). מתודולוגיה זו מבטיחה שהיעדים יהיו ברורים, ברי-מעקב ומציאותיים.</p>
+                        <ul class="list-disc bg-gray-100 p-4 rounded-lg space-y-2">
+                            <li><b>S - ספציפי (Specific):</b> היעד מוגדר בבירור ועונה על שאלות ה"מה", "מי", ו"איפה".</li>
+                            <li><b>M - מדיד (Measurable):</b> ניתן למדוד את היעד באופן כמותי או איכותי.</li>
+                            <li><b>A - בר-השגה (Achievable):</b> היעד מציאותי וניתן להשגה במסגרת המשאבים והזמן הקיימים.</li>
+                            <li><b>R - רלוונטי (Relevant):</b> היעד תורם ישירות להשגת מטרת-העל של הפרויקט.</li>
+                            <li><b>T - תחום בזמן (Time-bound):</b> ליעד יש תאריך יעד ברור.</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <!-- Page 4: Practical Planning -->
+                <div id="page-4" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">חלק 4: תכנון מעשי – מתוכנית לביצוע</h2>
+                     <section class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">4.1. פירוק הפרויקט למשימות (Work Breakdown Structure – WBS)</h3>
+                        <p>הצעד הראשון בתכנון המעשי הוא פירוק הפרויקט למרכיביו. מבנה תכולת עבודה (WBS) הוא תהליך של חלוקת התפוקות (Outputs) שהוגדרו במודל הלוגי לחבילות עבודה קטנות יותר, ומשם למשימות בודדות הניתנות לניהול (<span class="ref-link" data-ref="37">37</span>, <span class="ref-link" data-ref="38">38</span>). ה-WBS מהווה את הבסיס לתכנון לוחות זמנים, הקצאת משאבים והערכת עלויות מדויקת.</p>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">4.2. תכנון לוח זמנים: תרשימי גאנט</h3>
+                        <p>תרשים גאנט (Gantt Chart) הוא כלי ויזואלי חיוני לתכנון וניהול לוח הזמנים של הפרויקט. הוא מציג את כל משימות הפרויקט על ציר זמן, ומאפשר לראות בבירור את משך כל משימה, התלות בין משימות שונות, ואת התקדמות הפרויקט הכוללת (<span class="ref-link" data-ref="39">39</span>, <span class="ref-link" data-ref="40">40</span>). ניתן להשתמש בתבניות חינמיות בכלים כמו Excel או כלים מקוונים.</p>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">4.3. תכנון וניהול משאבים</h3>
+                        <p>תכנון משאבים (Resource Planning) הוא תהליך של זיהוי, הערכה והקצאה של כל המשאבים הנדרשים להשלמת הפרויקט: משאבי אנוש (צוות, מתנדבים), משאבים פיזיים (חללי עבודה, ציוד), משאבים פיננסיים וזמן (<span class="ref-link" data-ref="42">42</span>, <span class="ref-link" data-ref="43">43</span>).</p>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">4.4. ניהול סיכונים</h3>
+                        <p>כל פרויקט כרוך בסיכונים. ניהול סיכונים (Risk Management) פרואקטיבי הוא תהליך של זיהוי, הערכה ותכנון תגובה לאירועים פוטנציאליים העלולים לסכן את הצלחת הפרויקט (<span class="ref-link" data-ref="45">45</span>). סיכונים נפוצים כוללים עזיבת איש צוות, שינויים במדיניות, מעורבות נמוכה ועוד.</p>
+                        <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-lg">
+                            <h4 class="font-bold">כלי אינטראקטיבי: טבלת רישום סיכונים (Risk Register)</h4>
+                            <p class="mb-4">זהו את הסיכונים הפוטנציאליים בפרויקט שלכם ותכננו כיצד למתן אותם.</p>
+                            <div class="overflow-x-auto">
+                                <table id="risk-table" class="w-full border-collapse border border-gray-300 text-sm fixed-layout-table">
+                                    <thead class="bg-gray-200 font-semibold">
+                                        <tr>
+                                            <th class="border border-gray-300 p-2">תיאור הסיכון</th>
+                                            <th class="border border-gray-300 p-2">הסתברות (1-5)</th>
+                                            <th class="border border-gray-300 p-2">השפעה (1-5)</th>
+                                            <th class="border border-gray-300 p-2">ציון סיכון (הכפלה)</th>
+                                            <th class="border border-gray-300 p-2">אסטרטגיית מיתון</th>
+                                            <th class="border border-gray-300 p-2">אחראי</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td contenteditable="true" data-placeholder="למשל, מעורבות נמוכה של משתתפים" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="1=נמוכה, 5=גבוהה" class="editable-field border border-gray-300 p-2 risk-prob"></td>
+                                            <td contenteditable="true" data-placeholder="1=נמוכה, 5=גבוהה" class="editable-field border border-gray-300 p-2 risk-impact"></td>
+                                            <td class="border border-gray-300 p-2 bg-gray-100 risk-score"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, קמפיין שיווקי, שיתוף מובילים" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="שם האחראי" class="editable-field border border-gray-300 p-2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td contenteditable="true" data-placeholder="הקלד סיכון נוסף..." class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="1-5" class="editable-field border border-gray-300 p-2 risk-prob"></td>
+                                            <td contenteditable="true" data-placeholder="1-5" class="editable-field border border-gray-300 p-2 risk-impact"></td>
+                                            <td class="border border-gray-300 p-2 bg-gray-100 risk-score"></td>
+                                            <td contenteditable="true" data-placeholder="הקלד אסטרטגיה..." class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="שם האחראי" class="editable-field border border-gray-300 p-2"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="clear-table-btn mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" data-table="risk-table">נקה טבלה</button>
+                        </div>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">4.5. ניהול גמיש (Agile): התאמת התוכנית למציאות המשתנה</h3>
+                        <p>מתודולוגיית ה-Agile (ניהול זריז) היא גישה איטרטיבית (מחזורית) המפרקת פרויקטים למחזורי עבודה קצרים הנקראים "ספרינטים" (sprints). היא מאפשרת גמישות ותגובה מהירה לשינויים (<span class="ref-link" data-ref="48">48</span>, <span class="ref-link" data-ref="49">49</span>). מודל היברידי, המשלב את הבהירות האסטרטגית של ה-Logframe עם הגמישות הביצועית של Agile, הוא האפקטיבי ביותר עבור פרויקטים חברתיים-חינוכיים.</p>
+                        <p>פרקטיקות Agile מרכזיות לחינוך כוללות <b>לוח קנבן (Kanban Board)</b> לניהול ויזואלי של משימות ו<b>פגישות עמידה יומיות (Daily Stand-ups)</b> לתיאום מהיר (<span class="ref-link" data-ref="50">50</span>, <span class="ref-link" data-ref="51">51</span>, <span class="ref-link" data-ref="53">53</span>).</p>
+                    </section>
+                </div>
+                
+                <!-- Page 5: Educational Framework -->
+                <div id="page-5" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">חלק 5: המסגרת החינוכית – שילוב למידה והערכה</h2>
+                    <section class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">5.1. שילוב יעדי למידה בפעילויות הפרויקט</h3>
+                        <p>ב-PBL איכותי, הפרויקט *הוא* תוכנית הלימודים (<span class="ref-link" data-ref="55">55</span>). התהליך מתחיל מניסוח "שאלה מניעה" (Driving Question) פתוחה ומאתגרת, המעוגנת ביעדי הלמידה. משם, מזהים את הידע והמיומנויות הנדרשים כדי לענות עליה, וממפים אותם לאבני דרך בפרויקט.</p>
+                        <div class="bg-gray-100 p-4 rounded-lg my-4">
+                            <h4 class="font-bold">דוגמה לשאלה מניעה:</h4>
+                            <p class="italic">"כיצד נוכל, כתלמידי כיתה ח' המתמחים במדעים ותכנון עירוני, לתכנן גינה קהילתית בת-קיימא עבור בית הספר שלנו, שתפחית את טביעת הרגל הפחמנית שלנו ותספק מזון טרי לקהילה?"</p>
+                        </div>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">5.2. הערכת למידה באמצעות מחוונים</h3>
+                        <p>בסביבת PBL, שבה התוצרים מורכבים ורב-ממדיים, הערכה מספרית פשוטה אינה מספקת. מחוון (Rubric) הוא כלי הערכה חיוני המספק קריטריונים ברורים להערכת עבודה מורכבת ומאפשר מתן משוב מפורט והוגן (<span class="ref-link" data-ref="56">56</span>, <span class="ref-link" data-ref="57">57</span>). חשוב להעריך לא רק ידע תוכן, אלא גם מיומנויות כמו שיתוף פעולה, חשיבה ביקורתית ויצירתיות.</p>
+                        <div class="bg-purple-50 border-r-4 border-purple-500 p-4 rounded-lg">
+                            <h4 class="font-bold">דוגמת מחוון להערכת פרויקט PBL</h4>
+                            <div class="overflow-x-auto mt-4">
+                                <table class="w-full border-collapse border border-gray-300 text-sm fixed-layout-table">
+                                    <thead class="bg-gray-200 font-semibold">
+                                        <tr>
+                                            <th class="border border-gray-300 p-2">קריטריון</th>
+                                            <th class="border border-gray-300 p-2">מצוין (4)</th>
+                                            <th class="border border-gray-300 p-2">טוב (3)</th>
+                                            <th class="border border-gray-300 p-2">מתפתח (2)</th>
+                                            <th class="border border-gray-300 p-2">טעון שיפור (1)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-gray-300 p-2 font-semibold bg-gray-100">ידע תוכן</td>
+                                            <td class="border border-gray-300 p-2">מפגין הבנה עמוקה ומקיפה של כל המושגים הרלוונטיים, ומיישם אותם באופן חדשני.</td>
+                                            <td class="border border-gray-300 p-2">מפגין הבנה טובה של רוב המושגים הרלוונטיים ומיישם אותם נכונה.</td>
+                                            <td class="border border-gray-300 p-2">מפגין הבנה חלקית של המושגים, עם מספר אי-דיוקים.</td>
+                                            <td class="border border-gray-300 p-2">מפגין הבנה בסיסית או שגויה של המושגים המרכזיים.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-300 p-2 font-semibold bg-gray-100">חשיבה ביקורתית</td>
+                                            <td class="border border-gray-300 p-2">מנתח את הבעיה מזוויות מרובות, מזהה פתרונות יצירתיים ומעריך אותם באופן ביקורתי.</td>
+                                            <td class="border border-gray-300 p-2">מנתח את הבעיה באופן שיטתי ומציע פתרון מבוסס ורלוונטי.</td>
+                                            <td class="border border-gray-300 p-2">מזהה את הבעיה אך הניתוח שטחי והפתרון אינו מפותח דיו.</td>
+                                            <td class="border border-gray-300 p-2">מתקשה להגדיר את הבעיה או להציע פתרון קוהרנטי.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-300 p-2 font-semibold bg-gray-100">שיתוף פעולה</td>
+                                            <td class="border border-gray-300 p-2">לוקח תפקיד פעיל ומוביל בצוות, מקשיב לאחרים, בונה על רעיונותיהם ומסייע בפתרון קונפליקטים.</td>
+                                            <td class="border border-gray-300 p-2">משתתף באופן פעיל בדיוני הצוות, ממלא את חלקו במשימות ומכבד את חברי הצוות.</td>
+                                            <td class="border border-gray-300 p-2">משתתף באופן פסיבי, לעיתים מתקשה לעמוד במחויבויותיו לצוות.</td>
+                                            <td class="border border-gray-300 p-2">אינו תורם לעבודת הצוות או פוגע בהתנהלותה.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                     <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">5.3. הערכת התהליך והתוצר: תיק עבודות (פורטפוליו)</h3>
+                        <p>תיק עבודות (Portfolio) הוא אוסף מכוון של עבודות תלמיד המציג את מאמציו, התקדמותו והישגיו לאורך זמן. הוא מאפשר הערכה של תהליך הלמידה והצמיחה, ומטפח מטא-קוגניציה ואחריות של הלומד על למידתו (<span class="ref-link" data-ref="61">61</span>, <span class="ref-link" data-ref="62">62</span>). הרכיב החשוב ביותר בפורטפוליו הוא הרפלקציה, שבה התלמיד מסביר את בחירותיו ומקשר אותן ליעדי הלמידה ולצמיחתו האישית (<span class="ref-link" data-ref="63">63</span>, <span class="ref-link" data-ref="65">65</span>).</p>
+                    </section>
+                </div>
+
+                <!-- Page 6: Measuring Success -->
+                <div id="page-6" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">חלק 6: מדידת הצלחה ותיעוד המסע</h2>
+                    <section class="space-y-4">
+                         <h3 class="text-2xl font-semibold text-gray-800">6.1. מדידת ההשפעה החברתית</h3>
+                         <p>מדידת השפעה חברתית (Social Impact Measurement) היא תהליך שיטתי של איסוף וניתוח נתונים כדי להבין את השינויים החברתיים הנובעים מפעילות הפרויקט (<span class="ref-link" data-ref="66">66</span>). חשוב להבחין בין תפוקות (Outputs), תוצאות (Outcomes), והשפעה (Impact). עיקרון מפתח הוא שילוב הערכה חברתית והערכת תלמידים: הראיות להשפעה החברתית הן, במקרים רבים, הראיות ללמידת התלמידים (<span class="ref-link" data-ref="70">70</span>).</p>
+                    </section>
+                    <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">6.2. ניהול תקשורת עם בעלי עניין</h3>
+                        <p>תקשורת יעילה עם בעלי עניין (Stakeholders) היא עורק החיים של כל פרויקט. תוכנית תקשורת אסטרטגית חיונית לניהול ציפיות, גיוס תמיכה, מניעת אי-הבנות והבטחת שיתוף פעולה פורה (<span class="ref-link" data-ref="71">71</span>).</p>
+                        <div class="bg-teal-50 border-r-4 border-teal-500 p-4 rounded-lg">
+                            <h4 class="font-bold">כלי אינטראקטיבי: תוכנית תקשורת עם בעלי עניין</h4>
+                            <div class="overflow-x-auto mt-4">
+                                <table id="comm-table" class="w-full border-collapse border border-gray-300 text-sm fixed-layout-table">
+                                    <thead class="bg-gray-200 font-semibold">
+                                        <tr>
+                                            <th class="border border-gray-300 p-2">בעל עניין</th>
+                                            <th class="border border-gray-300 p-2">מטרת התקשורת</th>
+                                            <th class="border border-gray-300 p-2">מסר מפתח</th>
+                                            <th class="border border-gray-300 p-2">ערוץ/שיטה</th>
+                                            <th class="border border-gray-300 p-2">תדירות</th>
+                                            <th class="border border-gray-300 p-2">אחראי</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td contenteditable="true" data-placeholder="למשל, הנהלת ביה''ס" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, קבלת אישור, דיווח" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, הפרויקט עומד ביעדים" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, פגישה, דוא''ל" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, חודשית" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="שם האחראי" class="editable-field border border-gray-300 p-2"></td>
+                                        </tr>
+                                         <tr>
+                                            <td contenteditable="true" data-placeholder="למשל, הורים" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, עדכון, גיוס למעורבות" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, ילדיכם לומדים ונהנים" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, עלון, ערב קהילתי" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="למשל, רבעונית" class="editable-field border border-gray-300 p-2"></td>
+                                            <td contenteditable="true" data-placeholder="שם האחראי" class="editable-field border border-gray-300 p-2"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="clear-table-btn mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" data-table="comm-table">נקה טבלה</button>
+                        </div>
+                    </section>
+                     <section class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">6.3. תיעוד ודיווח: בניית תשתית ידע</h3>
+                        <p>תיעוד שיטתי של תהליך הפרויקט הוא חיוני. הוא מבטיח שקיפות, מאפשר העברת ידע, מסייע בפתרון בעיות ויוצר בסיס ידע לפרויקטים עתידיים (<span class="ref-link" data-ref="74">74</span>). מסמכים חיוניים כוללים סיכומי פגישה, יומן מעקב סוגיות ודוחות סטאטוס תקופתיים (<span class="ref-link" data-ref="37">37</span>, <span class="ref-link" data-ref="75">75</span>, <span class="ref-link" data-ref="76">76</span>).</p>
+                    </section>
+                </div>
+
+                <!-- Page 7: Writing the Proposal -->
+                <div id="page-7" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">חלק 7: סיכום והצגה – כתיבת הצעת הפרויקט</h2>
+                    <section class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">7.1. מבנה הצעת הפרויקט</h3>
+                        <p>הצעה טובה מספרת סיפור ברור: היא מציגה בעיה דחופה, מציעה פתרון חדשני ובר-ביצוע, ומדגימה כיצד ההצלחה תימדד. השתמשו בתבנית הבאה כדי לבנות את ההצעה שלכם (<span class="ref-link" data-ref="77">77</span>, <span class="ref-link" data-ref="78">78</span>, <span class="ref-link" data-ref="79">79</span>).</p>
+                        <div class="bg-gray-100 border border-gray-300 p-6 rounded-lg space-y-6">
+                            <h4 class="text-xl font-bold text-center">תבנית להצעת פרויקט חברתי-חינוכי</h4>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 border-b pb-6">
+                                <div>
+                                    <label class="font-bold">שם הפרויקט:</label>
+                                    <div contenteditable="true" data-placeholder="שם קליט ומתאר" class="editable-field p-2 border rounded mt-1 bg-white"></div>
+                                </div>
+                                <div>
+                                    <label class="font-bold">מוגש על ידי:</label>
+                                    <div contenteditable="true" data-placeholder="שם הצוות/הארגון" class="editable-field p-2 border rounded mt-1 bg-white"></div>
+                                </div>
+                                <div>
+                                    <label class="font-bold">תאריך:</label>
+                                    <div contenteditable="true" data-placeholder="תאריך הגשה" class="editable-field p-2 border rounded mt-1 bg-white"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="font-bold text-lg">1. תקציר מנהלים</label>
+                                <p class="text-sm text-gray-600">סקירה כללית ותמציתית של הפרויקט כולו (נכתב בסוף). המטרה: לעורר עניין ולספק לקורא העסוק את כל המידע החיוני במהירות.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תקציר המנהלים..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                             <div>
+                                <label class="font-bold text-lg">2. הצהרת הבעיה והערכת צרכים</label>
+                                <p class="text-sm text-gray-600">תארו בבירור את הבעיה החברתית או החינוכית. בססו את דבריכם על נתונים מהערכת הצרכים שביצעתם.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תיאור הבעיה..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-lg">3. חזון, משימה ומטרות</label>
+                                 <p class="text-sm text-gray-600">הציגו את הצהרת החזון, המשימה, מטרת-העל (Goal) ומטרת הפרויקט (Purpose).</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את החזון, המשימה והמטרות..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-lg">4. תיאוריית השינוי והמסגרת הלוגית</label>
+                                <p class="text-sm text-gray-600">הציגו את תרשים ה-ToC והסבירו את ההיגיון הסיבתי. צרפו את טבלת ה-Logframe.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תיאור ה-ToC וה-Logframe..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-lg">5. קהל יעד ובעלי עניין</label>
+                                <p class="text-sm text-gray-600">תארו בפירוט את המוטבים הישירים ובעלי העניין המרכזיים.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תיאור קהל היעד..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-lg">6. פעילויות ולוח זמנים</label>
+                                <p class="text-sm text-gray-600">תארו את הפעילויות המרכזיות. צרפו את תרשים הגאנט.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תיאור הפעילויות..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-lg">7. המסגרת החינוכית</label>
+                                <p class="text-sm text-gray-600">פרטו את יעדי הלמידה ושיטות ההערכה (מחוונים, פורטפוליו).</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תיאור המסגרת החינוכית..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-lg">8. תוכנית ניטור והערכה</label>
+                                <p class="text-sm text-gray-600">הסבירו כיצד תנטרו ותעריכו את הצלחת הפרויקט והשפעתו, בהתבסס על ה-Logframe.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תוכנית הניטור וההערכה..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                             <div>
+                                <label class="font-bold text-lg">9. תקציב</label>
+                                <p class="text-sm text-gray-600">הציגו תקציב מפורט, מחולק לקטגוריות.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את התקציב..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-lg">10. ניהול סיכונים</label>
+                                <p class="text-sm text-gray-600">הציגו את טבלת רישום הסיכונים והסבירו את אסטרטגיות המיתון.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תוכנית ניהול הסיכונים..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                             <div>
+                                <label class="font-bold text-lg">11. קיימות והמשכיות</label>
+                                <p class="text-sm text-gray-600">הסבירו כיצד תוצאות הפרויקט יישמרו לאחר סיום המימון.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תוכנית הקיימות..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-lg">12. אודות הצוות</label>
+                                <p class="text-sm text-gray-600">הציגו את חברי הצוות המרכזיים ואת ניסיונם.</p>
+                                <div contenteditable="true" data-placeholder="הכניסו כאן את תיאור הצוות..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[120px]"></div>
+                            </div>
+                             <div>
+                                <label class="font-bold text-lg">13. נספחים (אופציונלי)</label>
+                                <p class="text-sm text-gray-600">צרפו מסמכים תומכים רלוונטיים (קורות חיים, מכתבי תמיכה, דוגמת מחוון).</p>
+                                <div contenteditable="true" data-placeholder="ציינו כאן את הנספחים..." class="editable-field p-3 border rounded mt-1 bg-white min-h-[80px]"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Page 8: Conclusion & References -->
+                <div id="page-8" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6">סיכום ומקורות</h2>
+                    <section class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">סיכום: לקראת חינוך יוצר שינוי</h3>
+                        <p>מדריך זה הציג מסגרת מקיפה להפיכת מחנכים לסוכני שינוי – יזמים חברתיים המשתמשים בפדגוגיה של למידה מבוססת פרויקטים כדי ליצור השפעה כפולה: חינוכית וחברתית. היציאה לדרך של יזמות חברתית-חינוכית היא מאתגרת, אך גם מתגמלת מאין כמוה. אנו מקווים שמדריך זה ישמש לכם כמפה וכמצפן במסע זה.</p>
+                    </section>
+                    <section id="references" class="mt-8 space-y-2">
+                         <h3 class="text-2xl font-semibold text-gray-800">מקורות</h3>
+                         <ul id="references-list" class="list-decimal list-inside space-y-2 text-sm">
+                            <!-- References will be dynamically converted to links by JS -->
+                            <li id="ref-1">Ashoka. (n.d.). What is a social entrepreneur?</li>
+                            <li id="ref-2">Dees, J. G. (2001). The meaning of social entrepreneurship.</li>
+                            <li id="ref-3">Doherty, B., Haugh, H., & Lyon, F. (2014). Social enterprises as hybrid organizations: A review and research agenda.</li>
+                            <li id="ref-4">Freire, P. (1970). Pedagogy of the oppressed.</li>
+                            <li id="ref-5">Santos, F. M. (2012). A positive theory of social entrepreneurship.</li>
+                            <li id="ref-6">Bell, S. (2010). Project-Based Learning for the 21st Century: Skills for the Future.</li>
+                            <li id="ref-7">Buck Institute for Education. (n.d.). What is PBL?</li>
+                            <li id="ref-8">Larmer, J., Mergendoller, J. R., & Boss, S. (2015). Setting the standard for project based learning.</li>
+                            <li id="ref-9">Partnership for 21st Century Skills. (n.d.). Framework for 21st century learning.</li>
+                            <li id="ref-10">Márquez, P., & Reficco, E. (2011). Socially-Oriented Project-Based Learning.</li>
+                            <li id="ref-11">Intel Education. (2012). Project-Based Learning and Community Partnerships.</li>
+                            <li id="ref-12">Strayhorn, T. L. (2012). College students' sense of belonging: A key to educational success for all students.</li>
+                            <li id="ref-13">Booker, K. (2016). Connection and commitment: How sense of belonging and classroom community influence student motivation and achievement.</li>
+                            <li id="ref-14">Community Tool Box. (n.d.). Chapter 3: Assessing Community Needs and Resources.</li>
+                            <li id="ref-15">CDC. (2018). Community Health Assessment aNd Group Evaluation (CHANGE) Action Guide.</li>
+                            <li id="ref-16">Witkin, B. R., & Altschuld, J. W. (1995). Planning and conducting needs assessments: A practical guide.</li>
+                            <li id="ref-17">USAID. (1996). Conducting a Participatory Community Assessment.</li>
+                            <li id="ref-18">Patton, M. Q. (2014). Qualitative research & evaluation methods.</li>
+                            <li id="ref-19">Knapp, J., Zeratsky, J., & Kowitz, B. (2016). Sprint: How to solve big problems and test new ideas in just five days.</li>
+                            <li id="ref-20">IDEO.org. (n.d.). Design Kit: Brainstorming.</li>
+                            <li id="ref-21">Interaction Design Foundation. (n.d.). Brainstorming.</li>
+                            <li id="ref-22">AJ&Smart. (n.d.). Facilitator's guide to lightning decision jam.</li>
+                            <li id="ref-23">Osborn, A. F. (1953). Applied imagination: Principles and procedures of creative problem-solving.</li>
+                            <li id="ref-24">Bain & Company. (2018). Mission and Vision Statements.</li>
+                            <li id="ref-25">Anderson, A. A. (2005). The community builder's approach to theory of change. The Aspen Institute.</li>
+                            <li id="ref-26">Center for Theory of Change. (n.d.). What is Theory of Change?</li>
+                            <li id="ref-27">Weiss, C. H. (1995). Nothing as practical as good theory: Exploring theory-based evaluation for comprehensive community initiatives for children and families.</li>
+                            <li id="ref-28">NPC. (2019). Ten steps to creating a theory of change.</li>
+                            <li id="ref-29">New Teacher Center. (n.d.). Our Theory of Change.</li>
+                            <li id="ref-30">ISTE. (n.d.). ISTE Standards for Students.</li>
+                            <li id="ref-31">Project Management Institute. (2017). A guide to the project management body of knowledge (PMBOK guide).</li>
+                            <li id="ref-32">EuropeAid. (2004). Project Cycle Management Guidelines.</li>
+                            <li id="ref-33">NORAD. (1999). The Logical Framework Approach.</li>
+                            <li id="ref-34">Doran, G. T. (1981). There's a S.M.A.R.T. way to write management's goals and objectives.</li>
+                            <li id="ref-35">MindTools. (n.d.). SMART Goals.</li>
+                            <li id="ref-36">Lawlor, K. B., & Hornyak, M. J. (2012). SMART goals: How the application of smart goals can contribute to achievement of student learning outcomes.</li>
+                            <li id="ref-37">Wrike. (n.d.). Project Management Guide.</li>
+                            <li id="ref-38">Asana. (n.d.). Guide to project management.</li>
+                            <li id="ref-39">Gantt.com. (n.d.). What is a Gantt Chart?</li>
+                            <li id="ref-40">Microsoft. (n.d.). Create a Gantt chart in Excel.</li>
+                            <li id="ref-41">Smartsheet. (n.d.). Free Gantt Chart Templates.</li>
+                            <li id="ref-42">Teamdeck. (n.d.). A comprehensive guide to resource planning.</li>
+                            <li id="ref-43">Float. (n.d.). The ultimate guide to resource management.</li>
+                            <li id="ref-44">Monday.com. (n.d.). What is resource planning?</li>
+                            <li id="ref-45">Stern, E. (2018). The 5 'A's of Risk Management in Education.</li>
+                            <li id="ref-46">Education Week. (2019). Managing Risks in K-12 Schools.</li>
+                            <li id="ref-47">Project Management Docs. (n.d.). Risk Register Template.</li>
+                            <li id="ref-48">Beck, K., et al. (2001). Manifesto for Agile Software Development.</li>
+                            <li id="ref-49">Atlassian. (n.d.). Agile Coach.</li>
+                            <li id="ref-50">Scrum.org. (n.d.). The Scrum Guide.</li>
+                            <li id="ref-51">agileinschools.com. (n.d.). Agile in Education.</li>
+                            <li id="ref-52">Scrum Alliance. (n.d.). Agile in Education: Applying Agile Principles to the Classroom.</li>
+                            <li id="ref-53">Leankit. (n.d.). Kanban for Education.</li>
+                            <li id="ref-54">Trello. (n.d.). Kanban Boards.</li>
+                            <li id="ref-55">PBLWorks. (n.d.). Gold Standard PBL.</li>
+                            <li id="ref-56">Andrade, H. G. (2000). Using rubrics to promote thinking and learning.</li>
+                            <li id="ref-57">Stevens, D. D., & Levi, A. J. (2013). Introduction to rubrics.</li>
+                            <li id="ref-58">PBLWorks. (n.d.). Rubrics.</li>
+                            <li id="ref-59">New Tech Network. (n.d.). Learning Rubrics.</li>
+                            <li id="ref-60">Edutopia. (2015). Resources and Tools for Deeper Learning.</li>
+                            <li id="ref-61">Barrett, H. (2007). Researching Electronic Portfolios and Learner Engagement.</li>
+                            <li id="ref-62">Cambridge, D. (2010). E-portfolios for lifelong learning and assessment.</li>
+                            <li id="ref-63">University of Michigan, Center for Research on Learning and Teaching. (n.d.). Portfolios.</li>
+                            <li id="ref-64">Brown University, The Harriet W. Sheridan Center for Teaching and Learning. (n.d.). Student Portfolios.</li>
+                            <li id="ref-65">Zubizarreta, J. (2009). The learning portfolio: Reflective practice for improving student learning.</li>
+                            <li id="ref-66">Social Value UK. (n.d.). What is social value?</li>
+                            <li id="ref-67">Kellogg Foundation. (2004). Logic Model Development Guide.</li>
+                            <li id="ref-68">Clark, C., & Brennan, M. (2016). The Social Impact Measurement Guide.</li>
+                            <li id="ref-69">Acumen. (n.d.). Lean Data Field Guide.</li>
+                            <li id="ref-70">Stid, D., & Wilmers, N. (2018). The Rise of Impact-Linked Education.</li>
+                            <li id="ref-71">Bourne, L. (2016). Stakeholder Relationship Management.</li>
+                            <li id="ref-72">MindTools. (n.d.). Stakeholder Analysis and Management.</li>
+                            <li id="ref-73">ProjectManager.com. (n.d.). Communications Plan Template.</li>
+                            <li id="ref-74">TeamGantt. (n.d.). 10 Essential Project Documents.</li>
+                            <li id="ref-75">PMI. (n.d.). Project Documentation.</li>
+                            <li id="ref-76">ClickUp. (n.d.). Status Report Templates.</li>
+                            <li id="ref-77">Candid. (n.d.). How to Write a Grant Proposal.</li>
+                            <li id="ref-78">Instrumentl. (n.d.). The Ultimate Guide to Writing a Grant Proposal.</li>
+                            <li id="ref-79">The Balance Small Business. (2021). How to Write a Project Proposal.</li>
+                            <li id="ref-80">Proposify. (n.d.). Project Proposal Template.</li>
+                        </ul>
+                    </section>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('#main-nav a');
+            const pages = document.querySelectorAll('.page-content');
+            const mainContentArea = document.getElementById('main-content-area');
+
+            // --- Navigation Logic ---
+            function showPage(hash) {
+                const targetHash = (hash === '' || hash === '#') ? '#page-0' : hash;
+                pages.forEach(page => {
+                    page.classList.toggle('hidden', '#' + page.id !== targetHash);
+                });
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === targetHash);
+                });
+                mainContentArea.scrollTop = 0;
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetHash = this.getAttribute('href');
+                    history.pushState(null, null, targetHash);
+                    showPage(targetHash);
+                });
+            });
+            
+            window.addEventListener('popstate', () => showPage(window.location.hash));
+            
+            // --- Interactive Elements Logic ---
+            const editableFields = document.querySelectorAll('.editable-field');
+            
+            function checkPlaceholder(field) {
+                field.classList.toggle('is-empty', field.textContent.trim() === '');
+            }
+            
+            editableFields.forEach(field => {
+                checkPlaceholder(field);
+                field.addEventListener('input', () => checkPlaceholder(field));
+                field.addEventListener('blur', () => checkPlaceholder(field));
+            });
+
+            const clearButtons = document.querySelectorAll('.clear-table-btn');
+            clearButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const table = document.getElementById(this.dataset.table);
+                    if (table) {
+                        table.querySelectorAll('.editable-field').forEach(cell => {
+                            cell.innerHTML = '';
+                            checkPlaceholder(cell);
+                        });
+                        table.querySelectorAll('.risk-score').forEach(scoreCell => scoreCell.textContent = '');
+                    }
+                });
+            });
+
+            const riskTable = document.getElementById('risk-table');
+            if (riskTable) {
+                riskTable.addEventListener('input', function(e) {
+                    if (e.target.matches('.risk-prob, .risk-impact')) {
+                        const row = e.target.closest('tr');
+                        const prob = parseInt(row.querySelector('.risk-prob')?.textContent, 10) || 0;
+                        const impact = parseInt(row.querySelector('.risk-impact')?.textContent, 10) || 0;
+                        row.querySelector('.risk-score').textContent = (prob * impact > 0) ? (prob * impact) : '';
+                    }
+                });
+            }
+            
+            // --- Reference Links Logic (NEW) ---
+            const refLinks = document.querySelectorAll('.ref-link');
+            const referenceListItems = document.querySelectorAll('#references-list li');
+            const referenceMap = {};
+
+            // Create a map of ref IDs to their full text content
+            referenceListItems.forEach(item => {
+                const refId = item.id.replace('ref-', '');
+                if (refId) {
+                    referenceMap[refId] = item.textContent.trim();
+                }
+            });
+
+            refLinks.forEach(link => {
+                const refId = link.dataset.ref;
+                const refText = referenceMap[refId];
+
+                if (refText) {
+                    // 1. Add tooltip on hover
+                    link.title = refText;
+
+                    // 2. On click, open Google search in a new tab
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(refText)}`;
+                        window.open(searchUrl, '_blank', 'noopener,noreferrer');
+                    });
+                }
+            });
+            
+            // --- Convert text references at the bottom to external links ---
+            function makeReferencesClickable() {
+                document.querySelectorAll('#references-list li').forEach(item => {
+                    const text = item.textContent.trim();
+                    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(text)}`;
+                    item.innerHTML = `<a href="${searchUrl}" target="_blank" rel="noopener noreferrer" title="חפש את המקור: '${text}'" class="external-ref-link">${text}</a>`;
+                });
+            }
+
+            // Initial setup
+            showPage(window.location.hash);
+            makeReferencesClickable();
+        });
+    </script>
+</body>
+</html>
