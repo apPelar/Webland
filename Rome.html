@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קורס: רומא העתיקה בחינוך ולדורף</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'EB Garamond', serif;
+            background-color: #f5f5f4; /* stone-100 */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cinzel', serif;
+        }
+        .latin {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            color: #78716c; /* stone-500 */
+            margin: 0 0.25rem;
+        }
+        h2 {
+            border-bottom: 2px solid #a8a29e; /* stone-400 */
+            padding-bottom: 0.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        a {
+            color: #991B1B; /* red-800 */
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            color: #7f1d1d; /* red-900 */
+            text-decoration: underline;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.5rem;
+            border: 1px solid #d6d3d1; /* stone-300 */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .side-nav-active {
+            background-color: #991B1B !important; /* red-800 */
+            color: #fffbeb !important; /* amber-50 */
+            font-weight: 700;
+        }
+        .side-nav-active:hover {
+            text-decoration: none;
+        }
+        .page-content {
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Timeline Styles */
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 1.1rem;
+            height: 100%;
+            width: 4px;
+            background: #a8a29e; /* stone-400 */
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-right: 3.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0.25rem;
+            right: 0.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #f5f5f4; /* stone-100 */
+            border: 4px solid #991B1B; /* red-800 */
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-date {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #991B1B; /* red-800 */
+        }
+    </style>
+</head>
+<body class="bg-stone-100 text-stone-800">
+
+    <!-- Main Header -->
+    <header class="bg-amber-50 shadow-md sticky top-0 z-20 border-b-2 border-stone-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl md:text-3xl font-bold text-red-900">רומא העתיקה בחינוך ולדורף</h1>
+                <!-- Top navigation for small screens -->
+                <nav class="md:hidden">
+                    <select id="mobile-nav" onchange="showPage(this.value)" class="bg-stone-200 border border-stone-400 text-stone-900 text-sm rounded-lg focus:ring-red-800 focus:border-red-800 block w-full p-2.5">
+                        <option value="intro">מבוא</option>
+                        <option value="part1">פרק 1: ייסוד רומא</option>
+                        <option value="part2">פרק 2: הרפובליקה</option>
+                        <option value="part3">פרק 3: הנדסה וצבא</option>
+                        <option value="part4">פרק 4: חיי היום-יום</option>
+                        <option value="part5">פרק 5: דמדומי הרפובליקה</option>
+                        <option value="part6">פרק 6: אמונה ורוח</option>
+                        <option value="part7">פרק 7: צירי זמן</option>
+                        <option value="part8">פרק 8: עובדות מפתיעות</option>
+                        <option value="summary">סיכום</option>
+                    </select>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8">
+        <!-- Side Navigation -->
+        <aside class="hidden md:block md:col-span-1 py-6">
+            <nav id="side-nav" class="sticky top-24">
+                 <div class="bg-amber-50 p-4 shadow-lg rounded-lg border border-stone-300">
+                    <h3 class="text-lg font-bold text-red-900 mb-4">פרקי הקורס</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="showPage('intro'); return false;" data-page="intro" class="side-nav-link side-nav-active block p-2 rounded-md text-stone-700 hover:bg-stone-200">מבוא: מדוע רומא?</a></li>
+                        <li><a href="#" onclick="showPage('part1'); return false;" data-page="part1" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">פרק 1: ייסוד רומא</a></li>
+                        <li><a href="#" onclick="showPage('part2'); return false;" data-page="part2" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">פרק 2: הרפובליקה</a></li>
+                        <li><a href="#" onclick="showPage('part3'); return false;" data-page="part3" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">פרק 3: הנדסה וצבא</a></li>
+                        <li><a href="#" onclick="showPage('part4'); return false;" data-page="part4" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">פרק 4: חיי היום-יום</a></li>
+                        <li><a href="#" onclick="showPage('part5'); return false;" data-page="part5" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">פרק 5: דמדומי הרפובליקה</a></li>
+                        <li><a href="#" onclick="showPage('part6'); return false;" data-page="part6" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">פרק 6: אמונה ורוח</a></li>
+                        <li><a href="#" onclick="showPage('part7'); return false;" data-page="part7" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">פרק 7: צירי זמן</a></li>
+                        <li><a href="#" onclick="showPage('part8'); return false;" data-page="part8" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">פרק 8: עובדות מפתיעות</a></li>
+                        <li><a href="#" onclick="showPage('summary'); return false;" data-page="summary" class="side-nav-link block p-2 rounded-md text-stone-700 hover:bg-stone-200">סיכום: מורשתה של רומא</a></li>
+                    </ul>
+                 </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="md:col-span-3 min-w-0 py-6">
+            <section id="intro" class="page-content bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                <h2 class="text-3xl font-bold text-red-900">מבוא: מדוע רומא? הגשר בין התפתחות הילד להיסטוריה האנושית</h2>
+                <p class="mt-4 text-lg leading-relaxed">
+                    במסעה של תכנית הלימודים האנתרופוסופית דרך תרבויות העולם, המעבר מיוון העתיקה בכיתה ה' לרומא העתיקה בכיתה ו' אינו מהווה רק התקדמות כרונולוגית על ציר הזמן ההיסטורי. זהו מעבר פדגוגי מכוון, המשקף ומזין <a href="https://www.antro.org.il/waldorf/papers/age12" target="_blank">תמורה עמוקה המתרחשת בנפשו של הילד סביב גיל שתים-עשרה</a>. בגיל זה, חווה הילד מעין "חציית רוביקון" פנימית. הוא נוטש בהדרגה את העולם החלומי, המיתי וההרמוני של הילדות המוקדמת, שאותו פגש במלוא הדרו בלימודי המיתולוגיה והתרבות היוונית, ומתחיל להתבסס באופן חדש ומוצק בעולם הארצי, הממשי. תודעתו מתעוררת אל חוקי הסיבתיות, כושר השיפוט שלו מתחדד, ובתוכו מתעורר צורך עז ב<a href="https://www.waldorfteacherresources.com/index.php?topid=1&grade=6" target="_blank">חוקיות, סדר, מבנה וצדק</a>.
+                </p>
+                <p class="mt-4 text-lg leading-relaxed">
+                    תרבות רומא, על כל מאפייניה, מהווה תמונת-ראי חיצונית, רבת עוצמה, לתהליכים פנימיים אלו. הדגש הרומי על פרגמטיזם, על כינון חוק וממשל, על הנדסה מעשית ועל הפעלת כוח הרצון בעולם החומר, מספק את ה"מזון" הנפשי-רוחני המדויק לו זקוק הילד בשלב זה של התפתחותו. אם יוון של כיתה ה' פנתה אל <i>הנפש החושבת-מרגישה</i> – אל היופי, ההרמוניה, הפילוסופיה והאמנות – הרי שרומא של כיתה ו' פונה אל <a href="https://rsarchive.org/Books/GA025/English/RPC1943/GA025_c10.html" target="_blank"><i>נפש הרצון</i> (<span class="latin">Will-soul</span>) המתעוררת</a>. רומא היא התרבות המגלמת באופן המובהק ביותר את הרצון האנושי המוטבע על העולם, המעצב אותו והכופה עליו סדר.
+                </p>
+                <p class="mt-4 text-lg leading-relaxed">
+                    ההיגיון הפדגוגי העומד בבסיס בחירה זו נשען על תובנתו של רודולף שטיינר, לפיה <a href="https://www.antro.co.il/papers/EDU_Anat02.html" target="_blank">"כאשר אנו מחנכים את אדם הרצון, אנו מעירים את אדם הראש והחשיבה"</a>. לימוד ההישגים המעשיים והמוחשיים של רומא – הכבישים, אמות המים, מבנה הלגיון ומערכת המשפט – אינו רק שיעור היסטוריה. זהו תהליך חינוכי המעניק כיוון בריא ובונה לכוח הרצון המתעורר בעוצמה בקרב התלמידים. המפגש עם תרבות שהפכה את הסדר והחוקיות לעיקרון מארגן, מחזק את תחושת המסוגלות של הילד ומעניק לו כלים להתמודד עם העולם המורכב והממשי שהוא מתחיל לפגוש.
+                </p>
+            </section>
+
+            <section id="part1" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                <h2 class="text-2xl font-bold text-red-900">פרק 1: מן האגדה אל האדמה - ייסודה של רומא והמעבר ממלוכה לרפובליקה</h2>
+                <h3 class="text-xl font-semibold text-stone-700">המיתוסים המכוננים: אגדה עם רגליים על הקרקע</h3>
+                <p class="mt-2 text-lg leading-relaxed">
+                    בניגוד למיתוסים היווניים, המתרחשים לעיתים קרובות בפסגת האולימפוס או במחוזות דמיוניים, סיפורי היסוד של רומא נטועים עמוק באדמת איטליה. הם מספרים סיפור של גורל ארצי, של מאבק על טריטוריה ושל קביעת גבולות פיזיים. המסורת הרומית קושרת את מוצאה לשני נרטיבים מרכזיים. הראשון הוא סיפורו של <a href="https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%A0%D7%99%D7%90%D7%A1" target="_blank">איניאס (<span class="latin">Aeneas</span>)</a>, הגיבור הטרויאני שנמלט מעירו הבוערת לאחר מלחמת טרויה. בכך, קושרים עצמם הרומאים למורשת ההרואית של יוון, אך בה בעת מכוננים לעצמם גורל חדש ונפרד על חופי איטליה, לשם הונחה על פי נבואה.
+                </p>
+                <p class="mt-2 text-lg leading-relaxed">
+                    האגדה השנייה, המוכרת יותר, היא סיפורם של התאומים <a href="https://he.wikipedia.org/wiki/%D7%A8%D7%9E%D7%95%D7%A1_%D7%95%D7%A8%D7%95%D7%9E%D7%95%D7%9C%D7%95" target="_blank">רמוס ורומולוס (<span class="latin">Romulus and Remus</span>)</a>, צאצאיו של איניאס, שהושלכו לנהר הטיבר וניצלו בזכות זאבה שהיניקה אותם. סיפור זה, על שני האחים המייסדים עיר, שהמאבק ביניהם על מיקום החומות מסתיים ברצח ובקביעת גבול דמים, מדגיש כבר מראשית הדרך את האופי הפרגמטי, הארצי והאלים לעיתים של הציוויליזציה הרומית. באופן מרתק, <a href="https://he.wikipedia.org/wiki/%D7%92%D7%91%D7%A2%D7%AA_%D7%94%D7%A4%D7%90%D7%9C%D7%90%D7%98%D7%99%D7%95%D7%9D">הממצאים הארכיאולוגיים המודרניים</a> מעניקים בסיס מוחשי לאגדה: בחפירות בגבעת הפאלאטיום ברומא נחשפו עדויות ליישוב קבע של סוכות, המתוארך לאמצע המאה השמינית לפנה"ס, תאריך התואם את המסורת על ייסוד העיר בשנת 753 לפנה"ס.
+                </p>
+                <div class="video-container my-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PuK-_1uOkT8?si=gYuwavj95TGjTLFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                 <h3 class="text-xl font-semibold text-stone-700">תקופת המלוכה וכינון הרפובליקה</h3>
+                <p class="mt-2 text-lg leading-relaxed">
+                    במהלך תקופת המלוכה, שנמשכה על פי המסורת מ-753 עד 509 לפנה"ס, התפתח קובץ הכפרים הפזורים על גבעות רומא והפך לעיר-מדינה משמעותית בחבל לאטיום. תחת <a href="https://he.wikipedia.org/wiki/%D7%90%D7%98%D7%A8%D7%95%D7%A1%D7%A7%D7%99%D7%9D" target="_blank">השפעה אטרוסקית ניכרת</a>, שהותירה את חותמה בין היתר במוסד המלוכה עצמו, הפכה רומא לעיר מבוצרת עם מבנה חברתי מגובש וכוח צבאי מסודר.
+                </p>
+                <p class="mt-2 text-lg leading-relaxed">
+                    נקודת המפנה הדרמטית התרחשה בשנת 509 לפנה"ס, עם גירושו של המלך האחרון, לוקיוס טארקוויניוס סופרבוס. אירוע זה, שהונצח במסורת הרומית כמעשה גבורה אזרחי נגד עריצות, הוביל לביטול המלוכה ול<a href="https://www.worldhistory.org/Roman_Republic/" target="_blank">כינונה של הרפובליקה</a>. בניגוד להתערבות אלוהית, המאפיינת מיתוסים רבים, כאן מדובר בפעולה אנושית מובהקת, המונעת על ידי ערכים של חירות, כבוד ואחריות אזרחית. זיכרון שלילי זה של תקופת המלוכה נותר צרוב בתודעה הרומית למשך מאות שנים, ו<a href="https://www.britannica.com/place/Roman-Republic" target="_blank">השפיע עמוקות על המבנה הפוליטי שיצרו</a>.
+                </p><br>
+                <h3 class="text-xl font-semibold text-stone-700">חיבור אנתרופוסופי: התעוררות האחריות האזרחית</h3>
+                <p class="mt-2 text-lg leading-relaxed">
+                    עבור תלמיד כיתה ו', המעבר מלימוד המיתוסים ללימוד ההיסטוריה המעשית של רומא משקף את התפתחות תודעתו שלו. הוא עובר מ<a href="https://www.ornabendor.co.il/%D7%96%D7%9B%D7%A8-%D7%95%D7%A0%D7%A7%D7%91%D7%94-%D7%91%D7%A8%D7%90%D7%9D-%D7%92%D7%99%D7%9C-12-%D7%91%D7%A8%D7%90%D7%99-%D7%94%D7%91%D7%99%D7%95%D7%92%D7%A8%D7%A4%D7%99%D7%94/" target="_blank">הבנה תמונתית-מיתית של העולם</a>, שאפיינה את לימודיו בכיתות הנמוכות, להבנה היסטורית המבוססת על יחסי סיבה ותוצאה. סיפור ייסוד הרפובליקה מהדהד את התפתחותו החברתית: כשם שהאזרח הרומי המתהווה לומד לראות עצמו כחלק מקהילה בעלת זכויות וחובות, כך גם הילד מתחיל לתפוס את מקומו בחברה, תוך היפרדות הדרגתית מההיטמעות המוחלטת בסמכות ההורית או המלכותית, כפי שפגש למשל בסיפורי המקרא בכיתה ג'.
+                </p>
+                <p class="mt-2 text-lg leading-relaxed">
+                    סיפור הדחת המלוכה הוא בראש ובראשונה סיפור על <i>הגדרת גבולות</i> מול כוח שרירותי. זהו נושא נפשי מרכזי עבור ילד בן שתים-עשרה, אשר מתחיל בתהליך של הגדרת גבולותיו האישיים מול העולם – מול חבריו, הוריו ומוריו. התחזקות תחושת ה"אני" שלו דורשת ממנו לבחון את הסמכות ולהתעמת עמה. הסיפור הרומי על ההתקוממות נגד המלך וכינון סדר חדש המבוסס על חוק והסכמה, מעניק תמונה חיצונית אצילית לתהליך פנימי זה. הוא מלמד שהיפרדות מסמכות אינה צריכה להוביל לאנרכיה, אלא ללקיחת אחריות וליצירת סדר חדש, צודק יותר.
+                </p>
+            </section>
+
+            <section id="part2" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                <h2 class="text-2xl font-bold text-red-900">פרק 2: "הרס-פובליקה" (<span class="latin">Res Publica</span>) - עקרונות הסדר, החוק והממשל הרומי</h2>
+                <p class="mt-2 text-lg leading-relaxed">המונח הלטיני <a href="https://www.worldhistory.org/Roman_Republic/" target="_blank">"רס-פובליקה" (<span class="latin">Res Publica</span>)</a>, שמשמעו "ענייני הציבור" או "נחלת הכלל", מבטא את תמצית האידיאל שעמד בבסיס המשטר הרומי במשך קרוב ל-500 שנה. היה זה ניסיון מורכב ומרתק ליצור מערכת שלטונית שתמנע את חזרתה של העריצות המלוכנית, באמצעות פיזור הכוח ויצירת מערכת מתוחכמת של איזונים ובלמים.</p>
+<br>                <h3 class="text-xl font-semibold text-stone-700">מבנה השלטון הרפובליקני: מכונה של איזונים ובלמים</h3>
+                <p class="mt-2 text-lg leading-relaxed">בליבת הממשל הרפובליקני עמדו <a href="https://he.wikipedia.org/wiki/%D7%9E%D7%95%D7%A1%D7%93%D7%95%D7%AA_%D7%A4%D7%95%D7%9C%D7%99%D7%98%D7%99%D7%99%D7%9D_%D7%91%D7%A8%D7%95%D7%9E%D7%90" target="_blank">מספר מוסדות מרכזיים</a>, שכל אחד מהם איזן ובולם את כוחם של האחרים:</p>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b><a href="https://www.worldhistory.org/Roman_Consul/" target="_blank">הקונסולים (<span class="latin">Consuls</span>)</a>:</b> שני ראשי המדינה שנבחרו לכהונה שנתית. הם החזיקו ב<i>אימפריום</i> (<span class="latin">imperium</span>), סמכות הפיקוד העליונה בעניינים אזרחיים וצבאיים. העובדה שהיו שניים, ושלכל אחד הייתה זכות וטו על החלטות חברו, היוותה את הבלם המרכזי בפני ריכוז כוח יתר.</li>
+                    <li><b><a href="https://www.worldhistory.org/Roman_Senate/" target="_blank">הסנאט (<span class="latin">Senate</span>)</a>:</b> גוף שבתחילה מנה 100 איש מהמעמד העליון, ומאוחר יותר גדל. רשמית, תפקידו היה לייעץ לקונסולים, אך בפועל, יוקרתו ועושרו הפוליטי הפכו את "עצותיו" (<span class="latin">senatus consultum</span>) להחלטות מחייבות כמעט בכל תחומי המדיניות, ובמיוחד בכספי המדינה, יחסי חוץ וניהול הצבא.</li>
+                    <li><b><a href="https://www.worldhistory.org/Roman_Assembly/" target="_blank">אספות העם (<span class="latin">Assemblies</span>)</a>:</b> האזרחים הרומאים השתתפו בשלטון דרך מספר אסיפות. <i>אספת הקנטוריות</i>, שהייתה מאורגנת על בסיס צבאי-כלכלי, בחרה את הקונסולים והכריזה מלחמה. <i>אספת השבטים</i> ו<i>מועצת הפלבאים</i> (האחרונה כללה רק את פשוטי העם) היו אחראיות על חקיקת רוב החוקים ובחירת בעלי תפקידים זוטרים יותר.</li>
+                    <li><b>בעלי תפקידים נוספים:</b> <a href="https://www.worldhistory.org/Tribune/" target="_blank">טריבון הפלבאים</a>, שנבחר על ידי פשוטי העם, החזיק בכוח וטו על פעולות הסנאט והקונסולים ונחשב לקדוש (פגיעה בו הייתה עבירה שדינה מוות). תפקידים נוספים כמו פראיטור (שופט), איידיל (אחראי על ענייני העיר) וקוואיסטור (גזבר) השלימו את המערכת המורכבת.</li>
+                </ul>
+                <p class="mt-4 text-lg leading-relaxed">עקרונות היסוד של <b>הגבלת כהונה לשנה, קולגיאליות (שלטון משותף), וזכות האזרח לערער על החלטת פקיד</b> (<span class="latin">provocatio</span>) היו המנגנונים שהבטיחו, לתקופה ארוכה, את יציבותה של הרפובליקה ומנעו הידרדרות לעריצות.</p>
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-amber-50 border border-stone-300 rounded-lg shadow-sm">
+                        <thead class="bg-stone-200">
+                            <tr>
+                                <th class="py-3 px-4 border-b border-stone-300 text-right font-semibold text-stone-700">מוסד/תפקיד</th>
+                                <th class="py-3 px-4 border-b border-stone-300 text-right font-semibold text-stone-700">הרכב ומספר</th>
+                                <th class="py-3 px-4 border-b border-stone-300 text-right font-semibold text-stone-700">תפקידים וסמכויות</th>
+                                <th class="py-3 px-4 border-b border-stone-300 text-right font-semibold text-stone-700">מנגנון איזון/בלם</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-stone-100">
+                                <td class="py-3 px-4 border-b border-stone-300"><b>קונסול</b> (<span class="latin">Consul</span>)</td>
+                                <td class="py-3 px-4 border-b border-stone-300">2 נבחרים לשנה</td>
+                                <td class="py-3 px-4 border-b border-stone-300">פיקוד עליון על הצבא, ניהול המדינה.</td>
+                                <td class="py-3 px-4 border-b border-stone-300">כהונה שנתית; וטו הדדי.</td>
+                            </tr>
+                            <tr class="hover:bg-stone-100">
+                                <td class="py-3 px-4 border-b border-stone-300"><b>סנאט</b> (<span class="latin">Senate</span>)</td>
+                                <td class="py-3 px-4 border-b border-stone-300">כ-300-600 חברים</td>
+                                <td class="py-3 px-4 border-b border-stone-300">ייעוץ, פיקוח על אוצר, יחסי חוץ.</td>
+                                <td class="py-3 px-4 border-b border-stone-300">סמכות מיוקרה, תלוי בקונסולים.</td>
+                            </tr>
+                            <tr class="hover:bg-stone-100">
+                                <td class="py-3 px-4 border-b border-stone-300"><b>אספות העם</b> (<span class="latin">Assemblies</span>)</td>
+                                <td class="py-3 px-4 border-b border-stone-300">כלל האזרחים</td>
+                                <td class="py-3 px-4 border-b border-stone-300">חקיקה, בחירות, הכרזת מלחמה.</td>
+                                <td class="py-3 px-4 border-b border-stone-300">השפעת הסנאט על סדר היום.</td>
+                            </tr>
+                            <tr class="hover:bg-stone-100">
+                                <td class="py-3 px-4 border-b-0"><b>טריבון הפלבאים</b></td>
+                                <td class="py-3 px-4 border-b-0">10 נבחרים לשנה</td>
+                                <td class="py-3 px-4 border-b-0">הגנה על פשוטי העם, זכות וטו.</td>
+                                <td class="py-3 px-4 border-b-0">ייצג מעמד אחד בלבד.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 class="text-xl font-semibold text-stone-700">המשפט הרומי: מורשת עולם של צדק וחוק</h3>
+                <p class="mt-2 text-lg leading-relaxed">אולי התרומה המתמשכת והחשובה ביותר של רומא לציוויליזציה המערבית היא מערכת המשפט שפיתחה. הייתה זו מערכת שהתפתחה בהדרגה, מתוך צרכים מעשיים, והגיעה לרמת תחכום פילוסופית מרשימה.</p>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b><a href="https://www.worldhistory.org/Twelve_Tables/" target="_blank">"שנים-עשר הלוחות" (451 לפנה"ס)</a>:</b> נקודת המוצא הייתה מהפכה של ממש. בעקבות מאבק מעמדי בין הפטריקים (האצולה) לפלבאים (פשוטי העם), הועלו חוקי רומא על שנים-עשר לוחות ברונזה והוצבו בפורום, לעיני כל. היה זה המעבר מחוק שבעל-פה, שהיה נתון לפרשנות שרירותית של בעלי הכוח, לחוק כתוב, פומבי ועקבי. הלוחות עסקו בנושאים מעשיים של חיי היום-יום: סכסוכי שכנים, דיני ירושה, חוזים ועוולות, והיוו את <a href="https://www.britannica.com/topic/Law-of-the-Twelve-Tables" target="_blank">הבסיס למשפט האזרחי הרומי</a>.</li>
+                    <li><b>התפתחות המשפט – <a href="https://www.britannica.com/topic/Roman-law/The-history-of-Roman-law#ref234857" target="_blank">שלוש רמות של חוקיות</a>:</b> עם התרחבותה של רומא, התפתחה מערכת המשפט והתעצבה בשלוש רמות מושגיות, שההבחנה ביניהן היא מופת של חשיבה משפטית:
+                        <ol class="list-decimal pr-6 mt-2 space-y-1">
+                            <li><b class="latin"><a href="https://www.britannica.com/topic/jus-civile" target="_blank">Ius Civile</a></b> (משפט האזרח): זהו החוק הפוזיטיבי, המבוסס על חקיקה ומנהג, אשר חל באופן פרסונלי על אזרחי רומא בלבד, בכל מקום בו היו. הוא היה פורמליסטי וקפדני, ושיקף את הערכים והמבנה של החברה הרומית.</li>
+                            <li><b class="latin"><a href="https://www.britannica.com/topic/jus-gentium-Roman-law" target="_blank">Ius Gentium</a></b> (משפט העמים): ככל שזרים רבים יותר הגיעו לרומא והאימפריה התרחבה, נוצר צורך במערכת משפט גמישה ופרגמטית שתסדיר את היחסים המשפטיים והמסחריים עמם ובינם לבין עצמם. הפראיטורים (השופטים) פיתחו את "משפט העמים", שהיה מבוסס על עקרונות משותפים לתרבויות שונות ועל היגיון פשוט, בניגוד לפורמליזם של משפט האזרח. זה היה משפט אוניברסלי מעשי.</li>
+                            <li><b class="latin"><a href="https://iep.utm.edu/cicero-academic-and-political/#SH5e" target="_blank">Ius Naturae</a></b> (המשפט הטבעי): בהשפעת הפילוסופיה הסטואית היוונית, פיתחו המשפטנים הרומאים את הרעיון התאורטי של "המשפט הטבעי". זוהי תפיסה לפיה קיימים עקרונות מוסר וחוק אוניברסליים ונצחיים, הנובעים מהתבונה האנושית עצמה ומהטבע. חוקים אלו נתפסו כעליונים על כל חוק מעשה ידי אדם. הדוגמה המובהקת ביותר היא העיקרון לפיו על פי המשפט הטבעי, <a href="https://www.britannica.com/topic/Roman-law/The-history-of-Roman-law#ref234857" target="_blank">כל בני האדם נולדים בני חורין</a>.</li>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="video-container my-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/OBDTjvDtTbg?si=IKlcPHqYFFb-csDj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3 class="text-xl font-semibold text-stone-700">חיבור אנתרופוסופי: התעוררות כושר השיפוט והחשיבה הסיבתית</h3>
+                <p class="mt-2 text-lg leading-relaxed">לימוד מערכת הממשל והמשפט הרומית בכיתה ו' הוא לב הרציונל הפדגוגי להוראת התקופה. הילד בן ה-12, שזה עתה מתחיל לפתח חשיבה לוגית, מופשטת וסיבתית, פוגש תרבות שהפכה את ההיגיון, החוקיות והסדר לעיקרון מארגן מרכזי. העיסוק במבנה הרפובליקה, עם מנגנוני האיזון והבלמים שלה, מאמן את יכולתו החדשה של התלמיד לתפוס מערכות מורכבות, להבין יחסי גומלין בין חלקים שונים של השלם, ולחשוב במונחים של סיבה ותוצאה.</p>
+                <p class="mt-2 text-lg leading-relaxed">ההבחנה בין שלושת סוגי המשפט – <span class="latin">Civile, Gentium, Naturae</span> – היא כלי פדגוגי רב עוצמה. היא מציגה לתלמיד מודל של חשיבה היררכית ומדורגת על מושג הצדק. הוא לומד שישנם חוקים מקומיים ומוסכמים (כמו חוקי הכיתה או המדינה), ישנם חוקים רחבים יותר הנובעים ממפגש בין קהילות שונות (כללי התנהגות בין בתי ספר), וישנם עקרונות מוסריים-אוניברסליים הנובעים מהמצפון ומההכרה בכבוד האדם. זוהי למעשה מפה להתפתחות התודעה המוסרית שלו עצמו.</p>
+                <p class="mt-2 text-lg leading-relaxed">הקונפליקט המובנה בתוך מערכת המשפט הרומית, למשל סביב סוגיית העבדות, מספק חומר גלם מצוין לדיון המפתח חשיבה ביקורתית. המשפטן הרומי אולפיאנוס קבע כי <a href="https://www.britannica.com/topic/Roman-law/The-history-of-Roman-law#ref234857" target="_blank">על פי המשפט הטבעי כל בני האדם נולדו חופשיים, אך משפט העמים מכיר בקיומה של העבדות</a> כחלק מהמציאות האנושית. הצגת מתח זה בפני התלמידים, ללא מתן תשובה חד-משמעית, מאתגרת אותם לגבש עמדה אישית. היא מזמינה אותם לשאול שאלות נוקבות: האם חוק יכול להיות לא צודק? מה גובר – המנהג המקובל או הצו המוסרי הפנימי? דיונים כאלה מפתחים את יכולת השיפוט העצמאית של התלמידים, ומחברים את הלימוד ההיסטורי לעולמם המוסרי המתעצב.</p>
+            </section>
+            
+            <section id="part3" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                 <h2 class="text-2xl font-bold text-red-900">פרק 3: כוח הרצון הבונה והכובש: ההנדסה והצבא הרומי</h2>
+                 <p class="mt-2 text-lg leading-relaxed">אם המשפט והממשל ייצגו את הרצון הרומי המארגן את החברה, הרי שההנדסה והצבא היו הביטוי המוחשי והאדיר של אותו רצון, המעצב את העולם הפיזי וכופה עליו את מרותו. כאן פוגש תלמיד כיתה ו' את כוח הרצון האנושי בביטויו הגרנדיוזי ביותר.</p>
+                <h3 class="text-xl font-semibold text-stone-700">הגניוס ההנדסי הרומי: הטבעת חותם על העולם</h3>
+                <p class="mt-2 text-lg leading-relaxed"><a href="https://www.worldhistory.org/Roman_Engineering/" target="_blank">ההישגים ההנדסיים של רומא</a> לא היו רק מרשימים טכנית; הם היו הבסיס לקיומה של האימפריה, אפשרו את התפשטותה, והיוו סמל לעוצמתה וליכולתה לכפות סדר על הטבע.</p>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b><a href="https://www.zman.co.il/366344/popup/" target="_blank">הבטון הרומי (<span class="latin">Opus Caementicium</span>)</a>:</b> המהפכה הטכנולוגית המרכזית הייתה פיתוחו של בטון ייחודי. על ידי ערבוב של סיד, מים ואפר וולקני (<span class="latin">pozzolana</span>), יצרו הרומאים חומר בנייה חזק להפליא, עמיד במים וקל יחסית לעבודה. המצאה זו שחררה אותם ממגבלות הבנייה באבן מסותתת (שיטת העמוד והקורה היוונית) ואפשרה להם ליצור מבנים בעלי חללים פנימיים עצומים, כיפות וקמרונות נועזים.</li>
+                    <li><b>"כל הדרכים מובילות לרומא":</b> הרומאים סללו <a href="https://he.wikipedia.org/wiki/%D7%94%D7%93%D7%A8%D7%9B%D7%99%D7%9D_%D7%91%D7%A8%D7%95%D7%9E%D7%90_%D7%94%D7%A2%D7%AA%D7%99%D7%A7%D7%94" target="_blank">רשת כבישים אדירה</a>, באורך של מעל 120,000 ק"מ, שחיברה את כל קצוות האימפריה לבירתה. דרכים אלו, שנבנו בשכבות ובאופן המאפשר ניקוז, היו עמידות וחזקות כל כך, עד שחלקן משמשות בסיס לכבישים מודרניים עד היום. הן אפשרו תנועה מהירה של לגיונות, מסחר יעיל, והפצת מידע ותרבות, והיו עורקי החיים של האימפריה.</li>
+                    <li><b><a href="https://www.masa.co.il/article/%D7%90%D7%9E%D7%95%D7%AA-%D7%9E%D7%99%D7%9D-%D7%90%D7%99%D7%9F-%D7%9E%D7%99%D7%9D-%D7%A8%D7%97%D7%95%D7%A7%D7%99%D7%9D-%D7%9E%D7%93%D7%99/" target="_blank">אמות המים (<span class="latin">Aqueducts</span>)</a>:</b> אולי המפעל ההנדסי המזוהה ביותר עם רומא. מערכות אלו הובילו כמויות אדירות של מים צלולים לערים ממרחקים של עשרות קילומטרים, תוך שימוש מדויק בכוח הכבידה בלבד. כדי לחצות עמקים וגאיות, בנו המהנדסים הרומאים גשרים וקשתות מרהיבים, שהפכו לסמל של שליטה בטבע ודאגה לרווחת הציבור. המים הזינו את המרחצאות הציבוריים, המזרקות, ואף בתים פרטיים של עשירים, ואפשרו את קיומם של <a href="https://www.nationalgeographic.com/history/history-magazine/article/roman-aqueducts-engineering-innovation" target="_blank">חיים עירוניים היגייניים וצפופים</a>.</li>
+                </ul>
+                <div class="video-container my-6">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ffhxd5hmpjM?cc_load_policy=1&cc_lang_pref=English>>Hebrew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3 class="text-xl font-semibold text-stone-700">מבנים איקוניים:</h3>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b><a href="https://www.worldhistory.org/Colosseum/" target="_blank">הקולוסיאום (<span class="latin">Colosseum</span>)</a>:</b> אמפיתיאטרון ענק זה, שהושלם בשנת 80 לספירה, הוא פלא של ארגון, לוגיסטיקה ובנייה. הוא תוכנן להכיל כ-50,000 צופים, עם מערכת כניסות ויציאות שאפשרה ריקון מהיר של הקהל. מתחת לזירה שכנה מערכת מורכבת של מנהרות ומעליות (<span class="latin">hypogeum</span>) שאפשרה להעלות גלדיאטורים וחיות טרף אל פני השטח באופן דרמטי.</li>
+                    <li><b><a href="https://www.worldhistory.org/Pantheon/" target="_blank">הפנתיאון (<span class="latin">Pantheon</span>)</a>:</b> מקדש "כל האלים" ברומא, שהושלם בסביבות 128 לספירה, הוא יצירת מופת של אדריכלות. כיפת הבטון העצומה שלו, שבמרכזה פתח עגול לשמיים (<span class="latin">oculus</span>), נותרה כיפת הבטון הבלתי-מזוין הגדולה בעולם. המבנה מבטא את השליטה הרומית המוחלטת בחומר וביצירת חלל פנימי מעורר השתאות.</li>
+                </ul>
+              <br>  <h3 class="text-xl font-semibold text-stone-700">הצבא הרומי: מכונת מלחמה וסדר</h3>
+                <p class="mt-2 text-lg leading-relaxed"><a href="https://www.worldhistory.org/Roman_Army/" target="_blank">הצבא היה הכלי המרכזי</a> שבאמצעותו נבנתה האימפריה והובטח קיומה. הוא לא היה רק כוח כובש, אלא גם סוכן של סדר, הנדסה ורומניזציה.</p>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b><a href="https://www.worldhistory.org/Roman_Legion/" target="_blank">הלגיון (<span class="latin">Legion</span>)</a>:</b> יחידת היסוד של הצבא הייתה הלגיון, שהורכב מכ-5,000 חיילים רגלים כבדים, מאורגנים ביחידות משנה (קוהורטות וקנטוריות). הצלחת הלגיון נבעה משילוב של ציוד מעולה, טקטיקה גמישה, ובראש ובראשונה – <a href="https://www.britannica.com/topic/legion" target="_blank">משמעת ברזל ואימונים בלתי פוסקים</a>.</li>
+                    <li><b><a href="https://www.worldhistory.org/article/1598/marian-reforms/" target="_blank">הרפורמות של גאיוס מריוס (107 לפנה"ס)</a>:</b> רפורמות אלו שינו את פני הצבא והחברה. הצבא הפך מצבא אזרחים, שבו כל חייל מממן את ציודו, לצבא מקצועי של מתנדבים, בעיקר מקרב המעמדות הנמוכים. המדינה סיפקה את הציוד, והחיילים התחייבו לתקופת שירות ארוכה (25 שנים), שבסופה קיבלו קרקע או מענק. מהלך זה יצר צבא נאמן למפקדיו יותר מאשר לסנאט, והיה גורם מרכזי בהתפוררות הרפובליקה.</li>
+                    <li><b><a href="https://www.worldhistory.org/Roman_Legion/" target="_blank">הצבא כבונה ומהנדס</a>:</b> הלגיונרים לא רק נלחמו; הם היו גם כוח הנדסי אדיר. הם סללו את הכבישים, בנו את הגשרים, הקימו את מחנות הקבע (<span class="latin">castra</span>) שהפכו לערים, וחפרו את תעלות המכרות. הצבא היה הכוח המניע מאחורי פיתוח התשתיות של האימפריה.</li>
+                </ul>
+  <br>              <h3 class="text-xl font-semibold text-stone-700">חיבור אנתרופוסופי: חינוך הרצון והחיבור לארציות</h3>
+                <p class="mt-2 text-lg leading-relaxed">ההישגים המוחשיים, הגדולים והמתמשכים של רומא הם "תמונה" חינוכית מושלמת לכוח הרצון האנושי כאשר הוא מאורגן, ממושמע ומופנה למטרה מעשית. הילד בן ה-12, שחש בעצמו את התעוררות כוח הרצון, לעיתים באופן סוער וחסר כיוון, רואה בתרבות הרומית דוגמה ומופת ליכולת האנושית לעצב את העולם הפיזי, להתגבר על מכשולים ולהטביע חותם של סדר על הכאוס.</p>
+                <p class="mt-2 text-lg leading-relaxed">ניתן לראות קוטביות מעניינת בין יוון לרומא: היוונים יצרו יופי והרמוניה <i>בתוך</i> חוקי הטבע, תוך הקשבה להם. הפסל היווני חשף את הצורה הנסתרת בגוש השיש. לעומתם, הרומאים <i>כפו</i> את רצונם על הטבע. הם חצבו בהרים כדי לסלול דרך ישרה, הם חסמו נהרות כדי לבנות גשרים, והם הובילו מים במקומות שהטבע לא התכוון שיימצאו בהם. דיאלקטיקה זו, בין "התמסרות לטבע" לבין "שליטה בטבע", היא נושא חינוכי חשוב המכין את התלמידים להבנת המורכבות של הציוויליזציה האנושית ושל המדע המודרני.</p>
+                <p class="mt-2 text-lg leading-relaxed">חיבור נוסף וחשוב הוא לתכנית הלימודים בגיאומטריה. בכיתה ו', הלימוד עובר מרישום-צורות ביד חופשית, שאפיין את הכיתות הנמוכות, לעבודה מדויקת עם סרגל ומחוגה. מעבר זה מבטא את התפתחות החשיבה מהצורה האורגנית והחיה לחוקיות המופשטת והמדויקת. ההנדסה הרומית היא "גיאומטריה בפעולה" בקנה מידה עצום. היא לוקחת את העקרונות המופשטים של הקשת, הזווית והקו הישר, והופכת אותם למבנים פיזיים אדירים המשנים את פני העולם. כך, לימוד ההנדסה הרומית מחבר עבור התלמיד בין התפתחות החשיבה המופשטת שלו לבין התעוררות כוח הרצון המעשי, ומדגים לו כיצד מחשבה הופכת למעשה בעולם.</p>
+            </section>
+            <section id="part4" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                 <h2 class="text-2xl font-bold text-red-900">פרק 4: חיי היום-יום על אדמת רומא: המשפחה, החברה והאזרח</h2>
+                 <p class="mt-2 text-lg leading-relaxed">כדי להפיח חיים בלימוד התקופה, חיוני לרדת מרמת המבנים הגדולים והאירועים הדרמטיים אל חיי האנשים הפשוטים. כאן, במציאות היומיומית, מתגלים הפערים, המורכבות והצדדים האנושיים של הציוויליזציה הרומית.</p>
+                <h3 class="text-xl font-semibold text-stone-700">מבנה המשפחה: סדר וסמכות</h3>
+                <p class="mt-2 text-lg leading-relaxed">התא המשפחתי (<span class="latin">familia</span>) היה אבן היסוד של החברה הרומית, אך הוא היה מאורגן באופן שונה מאוד מהמשפחה המודרנית.</p>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b><a href="https://www.worldhistory.org/pater_familias/" target="_blank">ה-<span class="latin">Pater Familias</span> (אב המשפחה)</a>:</b> במרכז המשפחה עמד אב הבית, הגבר המבוגר ביותר במשפחה. על פי החוק, הוא החזיק ב<a href="https://www.worldhistory.org/article/64/the-roman-family/" target="_blank">סמכות כמעט מוחלטת (<span class="latin">patria potestas</span>)</a> על כל בני ביתו – אשתו, ילדיו (גם אם היו בוגרים ונשואים), נשות בניו, נכדיו ועבדיו. סמכות זו כללה שליטה על כל הרכוש, הזכות לארגן נישואין או לכפות גירושין, ואף את הסמכות להחליט אם לקבל תינוק חדש למשפחה או להפקירו (<span class="latin">expositio</span>). אף שסמכויות קיצוניות אלו לא מומשו לעיתים קרובות, הן מבטאות את המבנה ההיררכי והפטריארכלי העמוק של החברה.</li>
+                    <li><b>מעמד האישה והילדים:</b> <a href="https://www.worldhistory.org/article/657/the-role-of-women-in-the-roman-world/" target="_blank">האישה, ה-<span class="latin">materfamilias</span></a>, הייתה דמות מכובדת האחראית על ניהול משק הבית וחינוך הילדים הצעירים, אך היא נותרה כפופה חוקית לסמכות בעלה או אביה. החינוך החל בבית, ובמשפחות אמידות נמסר לעיתים קרובות לידי <a href="https://www.worldhistory.org/Roman_Education/" target="_blank">מורים פרטיים (<span class="latin">pedagogus</span>)</a>, שהיו לרוב עבדים או עבדים משוחררים ממוצא יווני, אשר לימדו קריאה, כתיבה, חשבון, ספרות ורטוריקה. בקרב המעמדות הנמוכים, <a href="https://www.worldhistory.org/pater_familias/" target="_blank">הילדים למדו את מלאכת הוריהם</a> והצטרפו למעגל העבודה בגיל צעיר.</li>
+                </ul>
+                <div class="video-container my-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/juWYhMoDTN0?si=NBcKk4MUuuMywOhvcc_lang_pref=Hebrew&cc_load_policy=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3 class="text-xl font-semibold text-stone-700">הפערים החברתיים: עולמות נפרדים</h3>
+                <p class="mt-2 text-lg leading-relaxed">רומא הייתה חברה של פערים עצומים, שהתבטאו בכל היבט של החיים.</p>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b>מגורים:</b> האליטה הפטריקית והעשירים התגוררו ב<a href="https://www.worldhistory.org/Roman_Domus/" target="_blank">בתים פרטיים מרווחים (<span class="latin">Domus</span>)</a>, שהיו מעוטרים בפסיפסים וציורי קיר, וכללו לעיתים מערכות חימום תת-רצפתי (<span class="latin">hypocaust</span>). לעומתם, המוני העם (<span class="latin">Plebeians</span>) הצטופפו בבנייני דירות גבוהים, צפופים ורעועים שנקראו <a href="https://www.worldhistory.org/Insula/" target="_blank"><span class="latin">Insulae</span></a>. ברוב הדירות הללו לא היו מטבחים, מים זורמים או שירותים, והסכנה של שריפות והתמוטטויות הייתה תמידית.</li>
+                    <li><b>מזון:</b> הפערים ניכרו גם בתזונה. <a href="https://www.worldhistory.org/article/109/food-in-the-roman-world/" target="_blank">תפריטם של העניים</a> התבסס על דגנים (לחם כהה וזול, דייסת חיטה שנקראה <span class="latin">puls</span>), קטניות (שעועית, עדשים) וירקות. בשר ודגים היו מצרך נדיר. רבים מתושבי העיר, שלא היה להם מטבח, קנו אוכל מוכן בדוכנים ובמעין "מסעדות מזון מהיר" שנקראו <a href="https://www.worldhistory.org/Thermopolium/" target="_blank"><span class="latin">thermopolia</span></a>. לעומת זאת, העשירים ערכו <a href="https://www.worldhistory.org/Roman_Dinner_Party/" target="_blank">משתאות פאר (<span class="latin">convivium</span>)</a>, שבהם שכבו על ספות ואכלו בידיהם. במשתאות אלו הוגשו מנות אקזוטיות ויקרות כמו לשונות של טווסים, דגי מורנה, ואף דורמייס (נמנמנים) מפוטמים, והכל תובל ברוטב דגים מותסס ויקר בשם <span class="latin">garum</span>.</li>
+                </ul>
+  <br>              <h3 class="text-xl font-semibold text-stone-700">חיבור אנתרופוסופי: התמודדות עם המציאות החברתית</h3>
+                <p class="mt-2 text-lg leading-relaxed">הצגת חיי היום-יום, על כל גווניהם, מאפשרת לתלמידים ליצור קשר אישי, רגשי וחווייתי עם התקופה. הם יכולים להשוות את חייהם שלהם – את מבנה משפחתם, את ביתם, את האוכל שהם אוכלים – לאלו של ילד רומי בן גילם, בין אם היה בן עשירים או בן עניים. פעילות כזו הופכת את הלימוד למשמעותי ורלוונטי.</p>
+                <p class="mt-2 text-lg leading-relaxed">מעבר לכך, המבנה החברתי והמשפחתי הנוקשה של רומא מציב בפני התלמידים תמונה קיצונית של סמכות והיררכיה. דמותו של ה-<span class="latin">Pater Familias</span> והפערים הכלכליים העצומים מעוררים באופן טבעי שאלות מוסריות עמוקות. בגיל שבו מתפתח אצל הילד <a href="https://www.whywaldorfworks.org/06-articles/sixthgrade.pdf" target="_blank">חוש צדק חד ורגישות לאי-שוויון</a>, המפגש עם המודל הרומי הוא הזמנה לדיון ערכי. המורה יכולה לשאול שאלות כמו: "האם זה צודק שלאב תהיה סמכות כה מוחלטת?", "מה הייתם מרגישים אילו הייתם חיים ב<i>אינסולה</i> ורואים את הווילות המפוארות?", "האם החוק הרומי היה צודק כלפי כל התושבים?".</p>
+                <p class="mt-2 text-lg leading-relaxed">דיונים אלו, הנובעים מתוך החומר ההיסטורי, אינם רק "עובדות יבשות". הם מפתחים בקרב התלמידים אמפתיה היסטורית, מחדדים את החוש המוסרי שלהם, ומחברים את הלימוד לעולמם הפנימי ולשאלות החברתיות שהם מתחילים לשאול על העולם הסובב אותם. זהו תרגול חשוב בגיבוש יכולת השיפוט העצמאית שלהם.</p>
+            </section>
+            <section id="part5" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                 <h2 class="text-2xl font-bold text-red-900">פרק 5: דמדומי הרפובליקה: הדילמה בין חירות הפרט לסדר הקיסרי</h2>
+                 <p class="mt-2 text-lg leading-relaxed">המאה הראשונה לפנה"ס הייתה תקופה סוערת ודרמטית בתולדות רומא. הרפובליקה, על מוסדותיה הוותיקים, נקלעה למשבר עמוק שהוביל למלחמות אזרחים עקובות מדם, להתפוררות הסדר הישן, ולבסוף – ל<a href="https://www.worldhistory.org/Roman_Empire/" target="_blank">עליית שלטון היחיד של הקיסרים</a>. סיפור נפילת הרפובליקה אינו רק סיפור פוליטי; זהו סיפור אנושי על קונפליקט בין אידיאלים, על אמביציה ועל הבחירות הטרגיות שעמדו בפני דמויות היסטוריות גדולות.</p>
+                <h3 class="text-xl font-semibold text-stone-700">המשבר הגדול ודמויות המפתח</h3>
+                <p class="mt-2 text-lg leading-relaxed">ההתרחבות העצומה של רומא יצרה בעיות שהמבנה של עיר-מדינה רפובליקנית התקשה לפתור. עושר אדיר זרם לפרובינקיות, מה שהוביל לשחיתות גוברת. הצבא המקצועי היה נאמן למפקדיו יותר מאשר לסנאט, ו<a href="https://www.britannica.com/event/the-fall-of-the-Roman-Republic" target="_blank">מצביאים כריזמטיים</a> כמו גאיוס מריוס, סולה, פומפיוס ויוליוס קיסר צברו כוח אישי עצום. על רקע כאוס זה, התנהלה הדרמה הגדולה של שלהי הרפובליקה, שניתן להבינה דרך הביוגרפיות של שלוש דמויות מפתח:</p>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b><a href="https://www.worldhistory.org/Cicero/" target="_blank">מרקוס טוליוס קיקרו (<span class="latin">Marcus Tullius Cicero</span>, 106-43 לפנה"ס)</a>:</b> קיקרו היה אולי המגן הגדול והרהוט ביותר של הרפובליקה הגוועת. כ"אדם חדש" (<span class="latin">novus homo</span>) שלא בא ממשפחת אצולה, הוא הגיע לפסגת השלטון, לקונסולאט, בכוח כישרונו כנואם ומשפטן. הוא האמין בכל ליבו בעליונות שלטון החוק והסנאט, וראה את עצמו כ"אבי המולדת" (<span class="latin">Pater Patriae</span>) לאחר שחשף ודיכא את קשר קטילינה להפלת המשטר. קיקרו לחם עד מוות, פשוטו כמשמעו, נגד כוחם של המצביאים וניסיונותיהם להפוך לשליטי יחיד, ובמיוחד נגד מרקוס אנטוניוס. הוא מייצג את <a href="https://www.britannica.com/biography/Cicero" target="_blank">האידיאל הרפובליקני</a>, את הנאמנות לעקרונות גם כשהמציאות הפוליטית הופכת אותם לבלתי אפשריים.</li>
+                    <li><b><a href="https://www.worldhistory.org/Julius_Caesar/" target="_blank">יוליוס קיסר (<span class="latin">Julius Caesar</span>, 100-44 לפנה"ס)</a>:</b> קיסר היה התגלמות הכוחות החדשים שערערו על הרפובליקה. גנרל מבריק, פוליטיקאי פופוליסט וכריזמטי, הוא צבר פופולריות עצומה בקרב העם והצבא. חציית נהר הרוביקון עם צבאו בשנת 49 לפנה"ס הייתה הכרזת מלחמה על הסנאט. לאחר שניצח במלחמת האזרחים, הוא הפך לדיקטטור לכל חייו וריכז בידיו את כל סמכויות השלטון. קיסר מייצג את כוח הרצון האינדיבידואלי, את היעילות והאמביציה, שאינם כבולים עוד לחוקים הישנים, ומבקשים ליצור סדר חדש, גם במחיר החרבת הישן.</li>
+                    <li><b><a href="https://www.worldhistory.org/Augustus/" target="_blank">אוקטביאנוס (לימים הקיסר אוגוסטוס, <span class="latin">Augustus</span>, 63 לפנה"ס - 14 לספירה)</a>:</b> אחיינו ויורשו של קיסר. לאחר רצח דודו, הפגין אוקטביאנוס גאונות פוליטית יוצאת דופן. הוא ניווט בחוכמה במלחמות האזרחים, הביס את כל יריביו, כולל רוצחי קיסר ושותפו-יריבו מרקוס אנטוניוס, ובשנת 27 לפנה"ס ייסד למעשה את משטר הקיסרות. אך הוא עשה זאת בפרגמטיות מתוחכמת: הוא נמנע מלקחת את התואר "מלך", שהיה שנוא על הרומאים, וכינה עצמו "פרינקפס" (<span class="latin">princeps</span>, ראשון בין שווים). הוא שמר על מראית עין של קיום מוסדות הרפובליקה (הסנאט המשיך להתכנס), אך ריכז את כל הכוח המעשי בידיו. בכך, הוא הביא לסיומן של מלחמות האזרחים והשכין תקופה ארוכה של שלום ויציבות, <a href="https://www.worldhistory.org/Pax_Romana/" target="_blank">ה"פאקס רומנה" (<span class="latin">Pax Romana</span>)</a>, אך במחיר חיסולה של החירות הפוליטית הרפובליקנית.</li>
+                </ul>
+                <div class="video-container my-6">
+                    <iframe src="https://www.youtube.com/embed/Yey-vnH6f10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+         <br>       <h3 class="text-xl font-semibold text-stone-700">חיבור אנתרופוסופי: דרמה היסטורית כמשל לנפש המתבגר</h3>
+                <p class="mt-2 text-lg leading-relaxed">הדרמה הסוערת של נפילת הרפובליקה היא סיפור על קונפליקט בין אידיאלים (חירות, שלטון העם, צדק) לבין צרכים מעשיים (סדר, ביטחון, יציבות). זהו קונפליקט שמהדהד בעוצמה בנפשו של הנער או הנערה המתבגרים. בגיל זה, הם מתחילים לגבש את זהותם וערכיהם, ו<a href="https://wn.rsarchive.org/Lectures/EduChild/19090817p01.html" target="_blank">נקרעים לעיתים קרובות בין הרצון לחופש אישי מוחלט לבין הצורך להשתייך למסגרת חברתית מסודרת</a>.</p>
+                <p class="mt-2 text-lg leading-relaxed">לימוד הביוגרפיות של קיקרו, קיסר ואוגוסטוס מאפשר לתלמידים לחקור ארכיטיפים שונים של מנהיגות והתמודדות עם משבר. קיקרו הוא הגיבור הטרגי, הנאמן לעקרונותיו גם כשהם מובילים למותו. קיסר הוא הגיבור המהפכני, הכריזמטי, שמשנה את כללי המשחק. אוגוסטוס הוא המדינאי המפוכח והפרגמטי, המוצא פתרון מעשי למשבר. התלמידים יכולים להזדהות עם דמויות שונות, לדון במניעיהן ובתוצאות מעשיהן, ובכך לפתח הבנה מורכבת ועשירה יותר של ההיסטוריה ושל טבע האדם.</p>
+                <p class="mt-2 text-lg leading-relaxed">הקונפליקט בין קיקרו לקיסר אינו רק מאבק פוליטי, אלא התנגשות בין שתי תפיסות עולם: הרפובליקה האידיאלית, על כל מורכבותה וחוסר יעילותה לעיתים, מול היעילות האוטוקרטית של שלטון היחיד. הצגת דילמה זו בפני התלמידים, ללא שיפוט חד-משמעי, מאתגרת את יכולת השיפוט שלהם. היא מזמינה אותם לשאול: מה עדיף – חירות המלווה בכאוס, או סדר ויציבות המושגים במחיר של דיכוי? שאלה זו, המגולמת בסיפור היסטורי סוחף ורב-עוצמה, מפתחת את החשיבה המוסרית והפוליטית שלהם באופן עמוק, ומכינה אותם להיות אזרחים חושבים בעולם המודרני.</p>
+            </section>
+            
+            <section id="part6" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                <h2 class="text-2xl font-bold text-red-900">פרק 6: אמונה, רוח ותרבות</h2>
+                <h3 class="text-xl font-semibold text-stone-700">הדת הרומית: חוזה עם האלים</h3>
+                <p class="mt-2 text-lg leading-relaxed">
+                    הדת הרומית המוקדמת הייתה מעשית וטקסית, והתמקדה בשימור ה-<span class="latin">pax deorum</span>, "שלום האלים". הייתה זו מערכת יחסים חוזית: בני האדם כיבדו את האלים באמצעות טקסים וקורבנות מדויקים (<span class="latin">do ut des</span> - "אני נותן כדי שאתה תיתן"), ובתמורה, האלים העניקו את חסותם למשפחה, לעיר ולמדינה. <a href="https://www.worldhistory.org/Roman_Religion/" target="_blank">הפנתיאון הרומי</a> שאב רבות מהמיתולוגיה היוונית, תוך מתן שמות לטיניים לאלים האולימפיים (יופיטר במקום זאוס, יונו במקום הרה, מארס במקום ארס). לצד האלים הראשיים, הייתה חשיבות עצומה לרוחות ולאלים ביתיים, כמו ה<b>לארס</b> (שומרי הבית) וה<b>פנאטס</b> (שומרי המזווה), שהגנו על התא המשפחתי.
+                </p>
+<div class="video-container my-6">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mpvUjTXlqNg?cc_load_policy=1&cc_lang_pref=English>>Hebrew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+</div>
+        <br>        <h3 class="text-xl font-semibold text-stone-700">פילוסופיה לחיי המעשה: הסטואיות</h3>
+                <p class="mt-2 text-lg leading-relaxed">
+                    אם היוונים הצטיינו במטאפיזיקה, הרומאים חיפשו פילוסופיה שתדריך אותם בחיים הציבוריים והפרטיים. הם מצאו זאת ב<a href="https://iep.utm.edu/stoicism/" target="_blank">פילוסופיה הסטואית</a>. הסטואיות לימדה שהדרך לאושר (<span class="latin">eudaimonia</span>) היא חיים בהתאם לטבע ולתבונה, קבלת הגורל בשלוות נפש, ומילוי חובותינו (<span class="latin">officium</span>) כלפי החברה והמדינה. ערכים אלו של חובה, איפוק, אחריות וכבוד עצמי התאימו באופן מושלם לאידיאל האזרח הרומי. הוגים כמו <b>סנקה</b>, העבד המשוחרר <b>אפיקטטוס</b>, והקיסר-הפילוסוף <b>מרקוס אורליוס</b> הפכו את הסטואיות למדריך מעשי להתמודדות עם קשיי החיים.
+                </p>
+                <h3 class="text-xl font-semibold text-stone-700">ספרות ואמנות: בשירות המדינה והאימפריה</h3>
+                <p class="mt-2 text-lg leading-relaxed">
+                    התרבות הרומית, אף שהושפעה עמוקות מהישגי יוון, פיתחה אופי ייחודי. בספרות, יצירות כמו ה"אינאיס" של <b>ורגיליוס</b> לא רק סיפרו סיפור הרואי, אלא גם יצרו מיתוס לאומי שנועד לפאר את רומא ואת שלטונו של אוגוסטוס. באמנות, הרומאים הצטיינו ב<a href="https://www.worldhistory.org/Roman_Sculpture/" target="_blank">פיסול דיוקנאות ריאליסטי</a>, שהדגיש את אופיו וניסיון חייו של המצולם, בניגוד לאידיאליזציה היוונית. האדריכלות, כפי שראינו, הייתה מונומנטלית ושימושית, ומבנים כמו <b>שערי ניצחון</b> ו<b>עמודי הנצחה</b> (כמו עמוד טראיאנוס) שימשו ככלי תעמולה רב עוצמה, שסיפרו את סיפור ניצחונותיה של רומא לכל תושבי האימפריה.
+                </p>
+                <div class="video-container my-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/SMSv5iR5wmo?cc_load_policy=1&cc_lang_pref=English>>Hebrew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <section id="part7" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                <h2 class="text-2xl font-bold text-red-900">פרק 7: ציר זמן מאוחד של רומא</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <p class="timeline-date">753 לפנה"ס - ייסוד רומא</p>
+                        <p class="text-lg">זהו התאריך המסורתי לתחילת ההיסטוריה הרומית. המיתוס על ייסוד העיר בידי האחים רמוס ורומולוס העניק לרומאים זהות משותפת ותחושת ייעוד אלוהי שהיו חיוניים לגיבושם כעם.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">509 לפנה"ס - ייסוד הרפובליקה</p>
+                        <p class="text-lg">אירוע מכונן זה עיצב את הזהות הפוליטית הרומית למשך 500 שנה. הדחת המלוכה יצרה אידיאל של שלטון משותף, חובות אזרחיות, ותיעוב עמוק כלפי שלטון יחיד.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">~450 לפנה"ס - חקיקת "שנים-עשר הלוחות"</p>
+                        <p class="text-lg">צעד מהפכני שהפך את החוק לנחלת הכלל. פרסום החוקים יצר בסיס לשוויון משפטי, הגביל את כוחם של הפטריקים, והניח את היסודות למערכת המשפט המפוארת של רומא.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">312 לפנה"ס - ויה אפיה ואקווה אפיה</p>
+                        <p class="text-lg">הדרך ואמת המים הראשונות מסמלות את תחילת שליטתה ההנדסית של רומא. פרויקטים אלו היו חיוניים לתנועה צבאית, מסחר, ואספקת מים לערים, ואיפשרו את התפשטות האימפריה.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">264 - 146 לפנה"ס - המלחמות הפוניות</p>
+                        <p class="text-lg">סדרת מלחמות אלו נגד קרתגו הפכה את רומא מכוח אזורי באיטליה למעצמה השולטת בים התיכון. הניצחון העניק לה טריטוריות חדשות, עושר עצום, והגמוניה צבאית.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">44 לפנה"ס - רצח יוליוס קיסר</p>
+                        <p class="text-lg">נקודת האל-חזור בהתמוטטות הרפובליקה. הרצח הוביל למלחמות אזרחים נוספות שהרסו סופית את המערכת הפוליטית הישנה וסללו את הדרך לשלטון יחיד.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">27 לפנה"ס - עליית אוגוסטוס לקיסרות</p>
+                        <p class="text-lg">תחילתה הרשמית של תקופת הקיסרות. אוגוסטוס סיים מאה של מלחמות אזרחים ויצר תקופה ארוכה של שלום ויציבות ("פאקס רומנה"), אך במחיר של ריכוז כל הכוח בידיו.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">80 לספירה - השלמת הקולוסיאום</p>
+                        <p class="text-lg">סמל לעוצמתה ההנדסית של רומא ולמדיניות "לחם ושעשועים". המבנה שימש לבידור ההמונים באמצעות קרבות גלדיאטורים ומופעים, ובכך חיזק את שלטון הקיסרים.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">313 לספירה - צו מילאנו</p>
+                        <p class="text-lg">נקודת מפנה היסטורית עבור העולם המערבי. הכרזת הסובלנות של הקיסר קונסטנטינוס כלפי הנצרות החלה את התהליך שהפך את הנצרות לדת המרכזית של האימפריה.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <p class="timeline-date">476 לספירה - נפילת האימפריה המערבית</p>
+                        <p class="text-lg">תאריך סמלי המציין את סופה של רומא העתיקה במערב ואת תחילת ימי הביניים. נפילת השלטון המרכזי הובילה להתפתחותן של ממלכות חדשות באירופה.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="part8" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                <h2 class="text-2xl font-bold text-red-900">פרק 8: עובדות מפתיעות, משעשעות ומדהימות</h2>
+                <ul class="list-disc pr-5 mt-4 space-y-4 text-lg">
+                    <li>
+                        <b>כביסה עם שתן:</b> הרומאים השתמשו בשתן שנאסף משירותים ציבוריים כחומר ניקוי לבגדים. האמוניה שבשתן פעלה כמלבין יעיל. מכבסות אפילו שילמו מס על איסוף השתן!
+                    </li>
+                    <li>
+                        <b>צבע של קיסרים:</b> הצבע הסגול היה יקר להחריד ונשמר בחוק לקיסר ולסנאטורים בלבד. נדרשו אלפי חלזונות ים מסוג ארגמון כדי להפיק גרם אחד של צבע.
+                    </li>
+                    <li>
+                        <b>זיעת גלדיאטורים:</b> זיעתם של גלדיאטורים מנצחים נחשבה לאפרודיזיאק (מעורר תשוקה) ושימשה כמרכיב בבשמים ובתכשירי טיפוח לנשים.
+                    </li>
+                    <li>
+                        <b>שמאל זה רע:</b> אנשים שמאליים נחשבו למביאי מזל רע ולאמינים פחות. המילה הלטינית ל"שמאל" היא <span class="latin">sinister</span>, ממנה הגיעה המילה האנגלית למשהו מאיים או מרושע.
+                    </li>
+                    <li>
+                        <b>בלי סבון:</b> הרומאים לא השתמשו בסבון. כדי להתנקות במרחצאות, הם מרחו על גופם שמן ואז גירדו אותו יחד עם הלכלוך באמצעות כלי מתכת מעוקל שנקרא סטריגיל.
+                    </li>
+                    <li>
+                        <b>מעדן ושמו נמנמן:</b> אחד המעדנים האהובים על עשירי רומא היה נמנמן (סוג של מכרסם) מפוטם, שהיה מגודל בכדי חרס מיוחדים, ולאחר מכן צלוי ומצופה בדבש ופרג.
+                    </li>
+                     <li>
+                        <b>אגודל למטה? לא בדיוק:</b> המחווה המפורסמת של "אגודל מטה" להרגת גלדיאטור היא כנראה מיתוס הוליוודי. היסטוריונים סבורים שהסימן למוות היה דווקא אגודל מונף כלפי מעלה (כמו שליפת חרב), בעוד שהסתרת האגודל בתוך האגרוף סימלה חנינה.
+                    </li>
+                </ul>
+                <div class="video-container my-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Xv_bd7pJBbY?cc_load_policy=1&cc_lang_pref=English>>Hebrew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </div>
+            </section>
+
+            <section id="summary" class="page-content hidden bg-amber-50 p-6 rounded-lg shadow border border-stone-300">
+                 <h2 class="text-2xl font-bold text-red-900">סיכום: מורשתה של רומא - החוק, השפה והסדר בעולמנו</h2>
+                 <p class="mt-2 text-lg leading-relaxed">השפעתה של רומא העתיקה על הציוויליזציה המערבית היא כה עמוקה ורחבה, עד שלעיתים קרובות אנו מקבלים אותה כמובנת מאליה. לימוד תקופה זו בכיתה ו' מאפשר לתלמידים להתחיל ולהכיר את השורשים הרומיים של עולמם, בתחומים רבים ומגוונים.</p>
+                <ul class="list-disc pr-5 mt-4 space-y-2 text-lg">
+                    <li><b>המורשת המשפטית:</b> המשפט הרומי, ובמיוחד הקודיפיקציה הגדולה של הקיסר יוסטיניאנוס במאה ה-6 לספירה, מהווה את <a href="https://www.britannica.com/topic/civil-law-law" target="_blank">הבסיס למערכות המשפט הקונטיננטליות (<span class="latin">Civil Law</span>)</a> הנהוגות כיום ברוב מדינות אירופה, אמריקה הלטינית ומקומות נוספים. <a href="https://www.law.berkeley.edu/wp-content/uploads/2017/11/Common-Law-Civil-Law-Traditions.pdf" target="_blank">מושגי יסוד משפטיים</a> כמו חוזה, נזיקין, בעלות, חזקה, וההבחנה בין משפט פרטי למשפט ציבורי, כולם ירושה ישירה מהחשיבה המשפטית הרומית.</li>
+                    <li><b>המורשת הלשונית:</b> הלטינית, שפת הממשל, הצבא והספרות של האימפריה, היא שפת האם של <a href="https://www.mustgo.com/worldlanguages/romance-languages/" target="_blank">השפות הרומאניות המודרניות</a>: איטלקית, צרפתית, ספרדית, פורטוגזית ורומנית. מעבר לכך, היא <a href="https://www.britannica.com/topic/Latin-language" target="_blank">השפיעה עמוקות על אוצר המילים של שפות רבות אחרות</a>, ובראשן האנגלית, ששאלה ממנה אלפי מילים, בעיקר בתחומי המדע, הרפואה, המשפט והאקדמיה. ביטויים לטיניים כמו <span class="latin">et cetera (etc.), ad hoc, quid pro quo</span> ו-<span class="latin">carpe diem</span> שגורים בשפות רבות עד ימינו.</li>
+                    <li><b>המורשת ההנדסית והאדריכלית:</b> <a href="https://www.worldhistory.org/Roman_Engineering/" target="_blank">טכניקות הבנייה הרומיות</a>, ובמיוחד השימוש המהפכני בבטון, בקשתות ובכיפות, לא רק אפשרו את הקמת המבנים המונומנטליים של רומא, אלא ממשיכים להוות מקור השראה לאדריכלים ומהנדסים עד היום. רעיון תכנון הערים, רשת הדרכים והדאגה לתשתיות ציבוריות כמו אמות מים הם כולם חלק מהמורשת הרומית.</li>
+                    <li><b>המורשת הרעיונית:</b> <a href="https://www.worldhistory.org/article/459/the-roman-republic/" target="_blank">הרעיון הרפובליקני</a> של שלטון המבוסס על חוק, על השתתפות אזרחית ועל מערכת של איזונים ובלמים, גם אם נכשל בסופו של דבר ברומא עצמה, הפך למגדלור רעיוני ולמקור השראה מרכזי עבור הוגים ומדינאים בתקופת הרנסנס והנאורות, ובמיוחד עבור מייסדי רפובליקות מודרניות, ובראשן ארצות הברית של אמריקה.</li>
+                </ul>
+                <p class="mt-4 text-lg leading-relaxed">החזרה אל הילד בן ה-12 מסכמת את חשיבותה הפדגוגית של התקופה. לימוד רומא מצייד את התלמיד בכלים חדשים וחיוניים להבנת העולם. הוא פיתח את חשיבתו הסיבתית, חידד את כושר השיפוט שלו, והתמודד עם מושגים מורכבים של צדק, חוק, כוח ואזרחות. הוא פגש את כוח הרצון האנושי בביטוייו האדירים, לטוב ולרע, והתחבר לשורשים הארציים, המעשיים והמסודרים של הציוויליזציה המערבית. הוא השלים את המסע מהעולם המיתי של יוון אל העולם ההיסטורי של רומא, וכעת הוא בשל ומוכן לעלות לכיתה ז', שם יפגוש את תקופת התגליות והרנסנס – תקופה של לידה מחדש של האינדיבידואל, המבוססת על היסודות האיתנים שהונחו ביוון וברומא.</p>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-stone-800 text-stone-200 text-center p-4 mt-8">
+        <p>&copy; 2024 קורס רומא העתיקה. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+            }
+
+            const navLinks = document.querySelectorAll('.side-nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('side-nav-active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('side-nav-active');
+                }
+            });
+
+            const mobileNav = document.getElementById('mobile-nav');
+            if (mobileNav) {
+                mobileNav.value = pageId;
+            }
+            
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
